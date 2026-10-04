@@ -26,13 +26,14 @@ const pillarCls = ["c-brain", "c-soul", "c-body"];
 ---
 <Base active="home">
 <main>
-	<section class="hero" id="home" style={heroImg ? `background-image:linear-gradient(rgba(90,20,48,.85),rgba(90,20,48,.9)),url(${heroImg.src});background-size:cover;background-position:center` : undefined}>
+	<section class="hero" id="home" style={heroImg ? `background:linear-gradient(rgba(110,22,50,.84),rgba(88,18,42,.9)),url(${heroImg.src}) center/cover no-repeat #6d1b38` : undefined}>
 		<div class="container hero-in">
 			<div class="hero-logo"><img src="/logo.jpg" alt="מערבא מכון רובין" width="150" height="150" /></div>
 			<h1>{hero.title}</h1>
 			<h2>{hero.subtitle}</h2>
 			<p class="hero-loc"><svg class="ic"><use href="#i-pin" /></svg>מושב מתתיהו</p>
 			{hero.body && <div class="badge">{hero.body}</div>}
+			{sec["hero-tagline"]?.body && <p class="hero-tagline">{sec["hero-tagline"].body}</p>}
 			<div class="hero-btns">
 				<a {...reg} class="btn btn-white"><svg class="ic"><use href="#i-chevron" /></svg>הרשמה לישיבה</a>
 				<a href="/about" class="btn btn-ghost">אודות הישיבה</a>
