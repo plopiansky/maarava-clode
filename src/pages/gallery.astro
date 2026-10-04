@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSite, imgOf } from "../lib/content";
+
+const { sec, kind } = await loadSite();
+const hero = sec["gallery-page"] ?? {};
+const photos = kind("gallery")
+	.map((g: any) => ({ ...g, img: imgOf(g.image) }))
+	.filter((g: any) => g.img);
+---
+<Base active="gallery" title="גלריה – ישיבת מערבא">
+<main>
+	<section class="page-hero">
+		<div class="container">
+			<h1>{hero.title}</h1>
+			<p>{hero.subtitle}</p>
+		</div>
+	</section>
+
+	<section class="gal-page">
+		<div class="container">
+			{photos.length === 0 ? (
+				<p class="gal-empty">{hero.body}</p>
+			) : (
+				<div class="gal-all">
+					{photos.map((p: any, i: number) => (
+						<figure class="gal-item reveal">
+							<button type="button" class="gal-btn" data-i={i} aria-label={`הגדלת תמונה: ${p.title}`}>
+								<img src={p.img.src} alt={p.title} loading="lazy" decoding="async" />
+								<figcaption>{p.title}</figcaption>
+							</button>
+						</figure>
+					))}
+				</div>
+			)}
+		</div>
+	</section>
+
+	<div class="lightbox" id="lb" hidden>
+		<button class="lb-close" aria-label="סגירה">×</button>
+		<button class="lb-nav lb-next" aria-label="הבאה">›</button>
+		<button class="lb-nav lb-prev" aria-label="הקודמת">‹</button>
+		<figure>
+			<img id="lb-img" alt="" />
+			<figcaption id="lb-cap"></figcaption>
+		</figure>
+	</div>
+	<script is:inline type="application/json" id="gal-data" set:html={JSON.stringify(photos.map((p: any) => ({ src: p.img.src, title: p.title, text: p.text || "" })))} />
+	<script is:inline src="/gallery.js"></script>
+</main>
+</Base>

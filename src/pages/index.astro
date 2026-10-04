@@ -16,6 +16,10 @@ const schedule = [
 	{ key: "schedule-noon", title: "אחר הצהריים", cls: "gold" },
 	{ key: "schedule-evening", title: "ערב", cls: "maroon" },
 ];
+const gallery = kind("gallery").filter((g: any) => imgOf(g.image));
+const featured = gallery.filter((g: any) => g.featured);
+const grads = ["#b99a6b,#6d4f2f", "#8f7b5a,#c9b48a", "#5f8a5a,#2f4f35", "#2f3b55,#8a97b5", "#6d4f2f,#e0c08a"];
+const galleryHome = gallery.length ? (featured.length ? featured : gallery).slice(0, 5) : grads.map(() => ({}));
 const trackCls = ["maroon", "gold", "maroon"];
 const trackBg = ["t1", "t2", "t3"];
 const pillarCls = ["c-brain", "c-soul", "c-body"];
@@ -121,13 +125,13 @@ const pillarCls = ["c-brain", "c-soul", "c-body"];
 			<div class="center"><span class="pill reveal">{sec.gallery?.body}</span></div>
 			<h2 class="sec-title reveal">{sec.gallery?.title}</h2>
 			<p class="sec-sub reveal">{sec.gallery?.subtitle}</p>
-			<div class="gal-grid">
-				{kind("gallery").slice(0, 5).map((g: any, i: number) => {
+			<div class={`gal-grid${gallery.length && gallery.length < 5 ? " few" : ""}`}>
+				{galleryHome.map((g: any, i: number) => {
 					const im = imgOf(g.image);
-					const grads = ["#b99a6b,#6d4f2f", "#8f7b5a,#c9b48a", "#5f8a5a,#2f4f35", "#2f3b55,#8a97b5", "#6d4f2f,#e0c08a"];
-					return <div class={`g g${i + 1} reveal`} style={im ? undefined : `background:linear-gradient(135deg,${grads[i]})`}>{im && <img src={im.src} alt={im.alt || g.title} loading="lazy" />}</div>;
+					return <a href="/gallery" class={`g g${i + 1} reveal`} style={im ? undefined : `background:linear-gradient(135deg,${grads[i]})`} aria-label={g.title}>{im && <img src={im.src} alt={g.title || ""} loading="lazy" />}</a>;
 				})}
 			</div>
+			<div class="center gal-more reveal"><a href="/gallery" class="btn btn-maroon">לכל התמונות</a></div>
 		</div>
 	</section>
 

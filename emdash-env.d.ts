@@ -5,25 +5,6 @@
 
 import type { BylineSummary, ContentBylineCredit, TaxonomyTerm } from "emdash";
 
-export interface Item {
-  id: string;
-  slug: string | null;
-  status: string;
-  title: string;
-  text?: string;
-  kind: "pillar" | "track" | "schedule-morning" | "schedule-noon" | "schedule-evening" | "approach-feature" | "graduate" | "bagrut-point" | "gallery" | "value";
-  time?: string;
-  icon?: string;
-  order?: number;
-  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date | null;
-  byline?: BylineSummary | null;
-  bylines?: ContentBylineCredit[];
-  terms?: Record<string, TaxonomyTerm[]>;
-}
-
 export interface Section {
   id: string;
   slug: string | null;
@@ -41,9 +22,162 @@ export interface Section {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
+export interface Pillar {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  text?: string;
+  icon?: "user" | "users" | "heart" | "dumbbell" | "book" | "cap" | "home" | "compass" | "trophy" | "award" | "brief" | "clock";
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Track {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  text?: string;
+  icon?: "user" | "users" | "heart" | "dumbbell" | "book" | "cap" | "home" | "compass" | "trophy" | "award" | "brief" | "clock";
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Schedule {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  period: "morning" | "noon" | "evening";
+  time?: string;
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface ApproachFeature {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  icon?: "user" | "users" | "heart" | "dumbbell" | "book" | "cap" | "home" | "compass" | "trophy" | "award" | "brief" | "clock";
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Graduate {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  text?: string;
+  icon?: "user" | "users" | "heart" | "dumbbell" | "book" | "cap" | "home" | "compass" | "trophy" | "award" | "brief" | "clock";
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface BagrutPoint {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Value {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  text?: string;
+  icon?: "user" | "users" | "heart" | "dumbbell" | "book" | "cap" | "home" | "compass" | "trophy" | "award" | "brief" | "clock";
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Staff {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  text?: string;
+  group: "management" | "rabbi";
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Gallery {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  text?: string;
+  featured?: boolean;
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 declare module "emdash" {
   interface EmDashCollections {
-    items: Item;
     sections: Section;
+    pillars: Pillar;
+    tracks: Track;
+    schedule: Schedule;
+    approach_features: ApproachFeature;
+    graduates: Graduate;
+    bagrut_points: BagrutPoint;
+    values: Value;
+    staff: Staff;
+    gallery: Gallery;
   }
 }

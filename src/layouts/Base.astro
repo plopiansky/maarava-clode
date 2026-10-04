@@ -4,7 +4,7 @@ import { loadSite } from "../lib/content";
 import { REGISTER_URL, PHONE, PHONE_HREF, EMAIL } from "../lib/config";
 import "../styles/global.css";
 
-interface Props { active?: "home" | "about" | "staff"; title?: string }
+interface Props { active?: "home" | "about" | "staff" | "gallery"; title?: string }
 const { active = "home", title = "ישיבת מערבא – מכון רובין" } = Astro.props;
 const { sec } = await loadSite();
 const regUrl = sec.register?.url || REGISTER_URL;
@@ -60,7 +60,7 @@ const reg = { href: regUrl, target: "_blank", rel: "noopener" };
 			<span class="brand-text"><strong>ישיבת מערבא</strong><small>מכון רובין</small></span>
 		</a>
 		<nav class="foot-nav">
-			<a href="/">ראשי</a><a href="/about">אודות</a><a href="/staff" class={active === "staff" ? "active" : ""}>צוות</a><a {...reg}>הרשמה</a><a href="#contact">צור קשר</a>
+			<a href="/">ראשי</a><a href="/about">אודות</a><a href="/staff" class={active === "staff" ? "active" : ""}>צוות</a><a href="/gallery">גלריה</a><a {...reg}>הרשמה</a><a href="#contact">צור קשר</a>
 		</nav>
 		<div class="foot-contact-row">
 			<a href={`mailto:${EMAIL}`}><svg class="ic"><use href="#i-mail" /></svg><span dir="ltr">{EMAIL}</span></a>

@@ -1,13 +1,15 @@
 import { getEmDashCollection } from "emdash";
 import seed from "../../seed/seed.json";
 
-export interface Img { src: string; alt?: string }
+export interface Img { src: string; alt?: string; width?: number; height?: number }
 
+/** Resolve an EmDash image field value (local media stores only a storage key) to a URL. */
 export function imgOf(v: unknown): Img | null {
 	if (!v || typeof v !== "object") return null;
-	const o = v as Record<string, unknown>;
-	const src = (o.src ?? o.url) as string | undefined;
-	return src ? { src, alt: (o.alt as string) ?? "" } : null;
+	const o = v as Record<string, any>;
+	const key = o.meta?.storageKey as string | undefined;
+	const src = (o.src ?? o.url ?? o.previewUrl ?? (key ? `/_emdash/api/media/file/${key}` : undefined)) as string | undefined;
+	return src ? { src, alt: o.alt ?? "", width: o.width, height: o.height } : null;
 }
 
 /** Escape HTML then turn **bold** into <b>. Blank line = new paragraph. */
@@ -24,19 +26,41 @@ export function paragraphs(text: string | null | undefined): string[] {
 		);
 }
 
+async function all(collection: string): Promise<any[]> {
+	const out: any[] = [];
+	let cursor: string | undefined;
+	for (let page = 0; page < 20; page++) {
+		const r: any = await getEmDashCollection(collection, { limit: 100, cursor } as any);
+		out.push(...r.entries.map((e: any) => ({ ...e.data, _slug: e.id })));
+		cursor = r.nextCursor;
+		if (!cursor) break;
+	}
+	return out.sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
+}
+
 export async function loadSite() {
-	const [secs, its] = await Promise.all([getEmDashCollection("sections"), getEmDashCollection("items")]);
-	const seedContent = (seed as any).content as { sections: any[]; items: any[] };
-	// Defaults come from the seed so a page never renders empty; anything saved in the CMS wins.
+	const seedSections = (seed as any).content.sections as any[];
+	const [secs, pillars, tracks, schedule, features, graduates, bagrut, values, staff, gallery] = await Promise.all(
+		["sections", "pillars", "tracks", "schedule", "approach_features", "graduates", "bagrut_points", "values", "staff", "gallery"].map(all),
+	);
+	// Section defaults come from the seed so a page never renders empty; anything saved in the CMS wins.
 	const sec: Record<string, any> = {};
-	for (const e of seedContent.sections) sec[e.slug] = e.data;
-	for (const e of secs.entries) sec[e.id] = e.data;
-	const order = (a: any, b: any) => (a.order ?? 0) - (b.order ?? 0);
-	const live = its.entries.map((e: any) => e.data).sort(order);
-	const fallback = seedContent.items.map((e: any) => e.data).sort(order);
-	const kind = (k: string) => {
-		const l = live.filter((i: any) => i.kind === k);
-		return l.length ? l : fallback.filter((i: any) => i.kind === k);
+	for (const e of seedSections) sec[e.slug] = e.data;
+	for (const e of secs) sec[e._slug] = e;
+	const lists: Record<string, any[]> = {
+		pillar: pillars,
+		track: tracks,
+		"schedule-morning": schedule.filter((s) => s.period === "morning"),
+		"schedule-noon": schedule.filter((s) => s.period === "noon"),
+		"schedule-evening": schedule.filter((s) => s.period === "evening"),
+		"approach-feature": features,
+		graduate: graduates,
+		"bagrut-point": bagrut,
+		value: values,
+		"staff-management": staff.filter((s) => s.group === "management"),
+		"staff-rabbi": staff.filter((s) => s.group !== "management"),
+		gallery,
 	};
+	const kind = (k: string) => lists[k] ?? [];
 	return { sec, kind };
 }

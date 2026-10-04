@@ -11,11 +11,14 @@
  "collections": [
   {
    "slug": "sections",
-   "label": "אזורי האתר",
+   "label": "טקסטים וכותרות",
    "labelSingular": "אזור",
+   "description": "הכותרות והטקסטים של כל חלקי האתר. הפריט 'קישור הרשמה' קובע לאן מובילים כפתורי ההרשמה.",
    "supports": [
     "drafts"
    ],
+   "group": "1. טקסטים וכותרות",
+   "sortOrder": 1,
    "fields": [
     {
      "slug": "title",
@@ -30,12 +33,12 @@
     },
     {
      "slug": "body",
-     "label": "טקסט (פסקה ריקה = פסקה חדשה, **מודגש**)",
+     "label": "טקסט (שורה ריקה = פסקה חדשה, **כך** = מודגש)",
      "type": "text"
     },
     {
      "slug": "image",
-     "label": "תמונה",
+     "label": "תמונה / רקע",
      "type": "image"
     },
     {
@@ -43,15 +46,19 @@
      "label": "קישור (URL)",
      "type": "url"
     }
-   ]
+   ],
+   "titleField": "title"
   },
   {
-   "slug": "items",
-   "label": "פריטים (כרטיסים, שעות, גלריה)",
-   "labelSingular": "פריט",
+   "slug": "pillars",
+   "label": "מוח / נפש / גוף",
+   "labelSingular": "כרטיס",
+   "description": "",
    "supports": [
     "drafts"
    ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 2,
    "fields": [
     {
      "slug": "title",
@@ -65,48 +72,414 @@
      "type": "text"
     },
     {
-     "slug": "kind",
-     "label": "סוג",
+     "slug": "icon",
+     "label": "אייקון",
+     "type": "select",
+     "validation": {
+      "options": [
+       "user",
+       "users",
+       "heart",
+       "dumbbell",
+       "book",
+       "cap",
+       "home",
+       "compass",
+       "trophy",
+       "award",
+       "brief",
+       "clock"
+      ]
+     },
+     "defaultValue": "book"
+    },
+    {
+     "slug": "image",
+     "label": "תמונת רקע (לא חובה)",
+     "type": "image"
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "tracks",
+   "label": "מסלולי לימוד",
+   "labelSingular": "מסלול",
+   "description": "",
+   "supports": [
+    "drafts"
+   ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 3,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "text",
+     "label": "טקסט",
+     "type": "text"
+    },
+    {
+     "slug": "icon",
+     "label": "אייקון",
+     "type": "select",
+     "validation": {
+      "options": [
+       "user",
+       "users",
+       "heart",
+       "dumbbell",
+       "book",
+       "cap",
+       "home",
+       "compass",
+       "trophy",
+       "award",
+       "brief",
+       "clock"
+      ]
+     },
+     "defaultValue": "book"
+    },
+    {
+     "slug": "image",
+     "label": "תמונת רקע",
+     "type": "image"
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "schedule",
+   "label": "סדר יום הלימודים",
+   "labelSingular": "שורה",
+   "description": "morning = בוקר, noon = אחר הצהריים, evening = ערב",
+   "supports": [
+    "drafts"
+   ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 4,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "פעילות",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "period",
+     "label": "חלק ביום",
      "type": "select",
      "required": true,
      "validation": {
       "options": [
-       "pillar",
-       "track",
-       "schedule-morning",
-       "schedule-noon",
-       "schedule-evening",
-       "approach-feature",
-       "graduate",
-       "bagrut-point",
-       "gallery",
-       "value",
-       "staff-management",
-       "staff-rabbi"
+       "morning",
+       "noon",
+       "evening"
       ]
-     }
+     },
+     "defaultValue": "morning"
     },
     {
      "slug": "time",
-     "label": "שעה (לסדר יום)",
-     "type": "string"
-    },
-    {
-     "slug": "icon",
-     "label": "אייקון (user, heart, dumbbell, book, cap, users, home, compass, trophy, award, brief)",
+     "label": "שעה",
      "type": "string"
     },
     {
      "slug": "order",
-     "label": "סדר",
-     "type": "integer"
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "approach_features",
+   "label": "נקודות בגישה החינוכית",
+   "labelSingular": "נקודה",
+   "description": "",
+   "supports": [
+    "drafts"
+   ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 5,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "icon",
+     "label": "אייקון",
+     "type": "select",
+     "validation": {
+      "options": [
+       "user",
+       "users",
+       "heart",
+       "dumbbell",
+       "book",
+       "cap",
+       "home",
+       "compass",
+       "trophy",
+       "award",
+       "brief",
+       "clock"
+      ]
+     },
+     "defaultValue": "book"
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "graduates",
+   "label": "בוגרינו – כרטיסים",
+   "labelSingular": "כרטיס",
+   "description": "",
+   "supports": [
+    "drafts"
+   ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 6,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "text",
+     "label": "טקסט",
+     "type": "text"
+    },
+    {
+     "slug": "icon",
+     "label": "אייקון",
+     "type": "select",
+     "validation": {
+      "options": [
+       "user",
+       "users",
+       "heart",
+       "dumbbell",
+       "book",
+       "cap",
+       "home",
+       "compass",
+       "trophy",
+       "award",
+       "brief",
+       "clock"
+      ]
+     },
+     "defaultValue": "book"
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "bagrut_points",
+   "label": "מסלולי בגרות – נקודות",
+   "labelSingular": "נקודה",
+   "description": "",
+   "supports": [
+    "drafts"
+   ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 7,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "הנקודה",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "values",
+   "label": "הערכים שלנו (עמוד אודות)",
+   "labelSingular": "ערך",
+   "description": "",
+   "supports": [
+    "drafts"
+   ],
+   "group": "2. כרטיסים ורשימות",
+   "sortOrder": 8,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "text",
+     "label": "טקסט",
+     "type": "text"
+    },
+    {
+     "slug": "icon",
+     "label": "אייקון",
+     "type": "select",
+     "validation": {
+      "options": [
+       "user",
+       "users",
+       "heart",
+       "dumbbell",
+       "book",
+       "cap",
+       "home",
+       "compass",
+       "trophy",
+       "award",
+       "brief",
+       "clock"
+      ]
+     },
+     "defaultValue": "book"
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "staff",
+   "label": "צוות הישיבה",
+   "labelSingular": "איש צוות",
+   "description": "management = הנהלת הישיבה (עיגולי זהב), rabbi = רבני הישיבה",
+   "supports": [
+    "drafts"
+   ],
+   "group": "4. צוות",
+   "sortOrder": 10,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "שם",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "text",
+     "label": "תפקיד",
+     "type": "string"
+    },
+    {
+     "slug": "group",
+     "label": "קבוצה",
+     "type": "select",
+     "required": true,
+     "validation": {
+      "options": [
+       "management",
+       "rabbi"
+      ]
+     },
+     "defaultValue": "rabbi"
     },
     {
      "slug": "image",
      "label": "תמונה",
      "type": "image"
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
     }
-   ]
+   ],
+   "titleField": "title"
+  },
+  {
+   "slug": "gallery",
+   "label": "גלריית תמונות",
+   "labelSingular": "תמונה",
+   "description": "אפשר להעלות כמה תמונות שרוצים. 'להציג בדף הבית' - עד 5 תמונות מופיעות בפריסה הגדולה בדף הבית; כל התמונות מופיעות בעמוד /gallery.",
+   "supports": [
+    "drafts"
+   ],
+   "group": "3. גלריה",
+   "sortOrder": 9,
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כיתוב",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "image",
+     "label": "התמונה",
+     "type": "image"
+    },
+    {
+     "slug": "text",
+     "label": "תיאור נוסף (מופיע בהגדלה)",
+     "type": "text"
+    },
+    {
+     "slug": "featured",
+     "label": "להציג בדף הבית",
+     "type": "boolean",
+     "defaultValue": false
+    },
+    {
+     "slug": "order",
+     "label": "סדר הצגה (מספר קטן = ראשון)",
+     "type": "integer",
+     "defaultValue": 100
+    }
+   ],
+   "titleField": "title"
   }
  ],
  "content": {
@@ -321,683 +694,532 @@
      "subtitle": "",
      "body": "מוזמנים להגיע לביקור בישיבה ולהתרשם"
     }
+   },
+   {
+    "id": "sec-gallery-page",
+    "slug": "gallery-page",
+    "status": "published",
+    "data": {
+     "title": "גלריית הישיבה",
+     "subtitle": "רגעים מחיי הישיבה - תורה, חברותא, טיולים ושמחה",
+     "body": "בקרוב יעלו כאן תמונות מחיי הישיבה."
+    }
    }
   ],
-  "items": [
+  "pillars": [
    {
-    "id": "item-1",
-    "slug": "item-1",
+    "id": "pillars-1",
+    "slug": "pillars-1",
     "status": "published",
     "data": {
      "title": "מוח",
+     "order": 10,
      "text": "בלימוד התורה ולהבדיל, בשאר מקצועות",
-     "kind": "pillar",
-     "time": "",
-     "icon": "user",
-     "order": 1
+     "icon": "user"
     }
    },
    {
-    "id": "item-2",
-    "slug": "item-2",
+    "id": "pillars-2",
+    "slug": "pillars-2",
     "status": "published",
     "data": {
      "title": "נפש",
+     "order": 20,
      "text": "ביראת שמים, בתפילה, במידות טובות, בפיתוח האישיות ובפעילויות חברתיות - שירה וניגון",
-     "kind": "pillar",
-     "time": "",
-     "icon": "heart",
-     "order": 2
+     "icon": "heart"
     }
    },
    {
-    "id": "item-3",
-    "slug": "item-3",
+    "id": "pillars-3",
+    "slug": "pillars-3",
     "status": "published",
     "data": {
      "title": "גוף",
+     "order": 30,
      "text": "בבריאות, תזונה טובה, פעילות גופנית, ספורט וכושר",
-     "kind": "pillar",
-     "time": "",
-     "icon": "dumbbell",
-     "order": 3
+     "icon": "dumbbell"
     }
-   },
+   }
+  ],
+  "tracks": [
    {
-    "id": "item-4",
-    "slug": "item-4",
+    "id": "tracks-1",
+    "slug": "tracks-1",
     "status": "published",
     "data": {
      "title": "קודש - כי הם חיינו",
+     "order": 10,
      "text": "תכנית לימודים מבוססת על שלושה סדרי לימוד: בוקר, אחה\"צ וערב. גמרא בעיון, הלכה ומחשבה",
-     "kind": "track",
-     "time": "",
-     "icon": "book",
-     "order": 4
+     "icon": "book"
     }
    },
    {
-    "id": "item-5",
-    "slug": "item-5",
+    "id": "tracks-2",
+    "slug": "tracks-2",
     "status": "published",
     "data": {
      "title": "בגרויות מלאות",
+     "order": 20,
      "text": "תעודת בגרות מלאה בציונים גבוהים. אפשרות ל-5 יח\"ל במתמטיקה, אנגלית, מחשבים, ביולוגיה ופיסיקה.",
-     "kind": "track",
-     "time": "",
-     "icon": "cap",
-     "order": 5
+     "icon": "cap"
     }
    },
    {
-    "id": "item-6",
-    "slug": "item-6",
+    "id": "tracks-3",
+    "slug": "tracks-3",
     "status": "published",
     "data": {
      "title": "יחס אישי",
+     "order": 30,
      "text": "רבני הישיבה וצוות המורים בעלי ניסיון וותק רב בהוראה ובעלי יחס אישי ואיכפתי לכל תלמיד",
-     "kind": "track",
-     "time": "",
-     "icon": "users",
-     "order": 6
+     "icon": "users"
     }
-   },
+   }
+  ],
+  "schedule": [
    {
-    "id": "item-7",
-    "slug": "item-7",
+    "id": "schedule-1",
+    "slug": "schedule-1",
     "status": "published",
     "data": {
      "title": "תפילת שחרית",
-     "text": "",
-     "kind": "schedule-morning",
+     "period": "morning",
      "time": "7:15",
-     "icon": "",
-     "order": 7
-    }
-   },
-   {
-    "id": "item-8",
-    "slug": "item-8",
-    "status": "published",
-    "data": {
-     "title": "ארוחת בוקר",
-     "text": "",
-     "kind": "schedule-morning",
-     "time": "-",
-     "icon": "",
-     "order": 8
-    }
-   },
-   {
-    "id": "item-9",
-    "slug": "item-9",
-    "status": "published",
-    "data": {
-     "title": "הלכה",
-     "text": "",
-     "kind": "schedule-morning",
-     "time": "9:00",
-     "icon": "",
-     "order": 9
-    }
-   },
-   {
-    "id": "item-10",
-    "slug": "item-10",
-    "status": "published",
-    "data": {
-     "title": "מפגש עם הר\"מ",
-     "text": "",
-     "kind": "schedule-morning",
-     "time": "9:50",
-     "icon": "",
      "order": 10
     }
    },
    {
-    "id": "item-11",
-    "slug": "item-11",
+    "id": "schedule-2",
+    "slug": "schedule-2",
     "status": "published",
     "data": {
-     "title": "סדר הכנה לימוד בחברותא - גמרא בעיון",
-     "text": "",
-     "kind": "schedule-morning",
-     "time": "10:00",
-     "icon": "",
-     "order": 11
-    }
-   },
-   {
-    "id": "item-12",
-    "slug": "item-12",
-    "status": "published",
-    "data": {
-     "title": "שיעור גמרא בעיון",
-     "text": "",
-     "kind": "schedule-morning",
-     "time": "11:45",
-     "icon": "",
-     "order": 12
-    }
-   },
-   {
-    "id": "item-13",
-    "slug": "item-13",
-    "status": "published",
-    "data": {
-     "title": "ארוחת צהריים והפסקה",
-     "text": "",
-     "kind": "schedule-noon",
-     "time": "13:00",
-     "icon": "",
-     "order": 13
-    }
-   },
-   {
-    "id": "item-14",
-    "slug": "item-14",
-    "status": "published",
-    "data": {
-     "title": "תפילת מנחה",
-     "text": "",
-     "kind": "schedule-noon",
-     "time": "14:30",
-     "icon": "",
-     "order": 14
-    }
-   },
-   {
-    "id": "item-15",
-    "slug": "item-15",
-    "status": "published",
-    "data": {
-     "title": "שיעור גמרא בקיאות",
-     "text": "",
-     "kind": "schedule-noon",
-     "time": "15:00",
-     "icon": "",
-     "order": 15
-    }
-   },
-   {
-    "id": "item-16",
-    "slug": "item-16",
-    "status": "published",
-    "data": {
-     "title": "לימודי אחר הצהריים",
-     "text": "",
-     "kind": "schedule-noon",
-     "time": "16:30",
-     "icon": "",
-     "order": 16
-    }
-   },
-   {
-    "id": "item-17",
-    "slug": "item-17",
-    "status": "published",
-    "data": {
-     "title": "ארוחת ערב והפסקה",
-     "text": "",
-     "kind": "schedule-evening",
-     "time": "19:30",
-     "icon": "",
-     "order": 17
-    }
-   },
-   {
-    "id": "item-18",
-    "slug": "item-18",
-    "status": "published",
-    "data": {
-     "title": "תפילה ערבית",
-     "text": "",
-     "kind": "schedule-evening",
-     "time": "20:15",
-     "icon": "",
-     "order": 18
-    }
-   },
-   {
-    "id": "item-19",
-    "slug": "item-19",
-    "status": "published",
-    "data": {
-     "title": "סדר חזרה גמרא בעיון",
-     "text": "",
-     "kind": "schedule-evening",
-     "time": "20:30",
-     "icon": "",
-     "order": 19
-    }
-   },
-   {
-    "id": "item-20",
-    "slug": "item-20",
-    "status": "published",
-    "data": {
-     "title": "סיום יום הלימודים הרשמי",
-     "text": "",
-     "kind": "schedule-evening",
-     "time": "21:30",
-     "icon": "",
+     "title": "ארוחת בוקר",
+     "period": "morning",
+     "time": "-",
      "order": 20
     }
    },
    {
-    "id": "item-21",
-    "slug": "item-21",
+    "id": "schedule-3",
+    "slug": "schedule-3",
     "status": "published",
     "data": {
-     "title": "צוות מקצועי ומנוסה הכולל שני מדריכים",
-     "text": "",
-     "kind": "approach-feature",
-     "time": "",
-     "icon": "users",
-     "order": 21
-    }
-   },
-   {
-    "id": "item-22",
-    "slug": "item-22",
-    "status": "published",
-    "data": {
-     "title": "משפחות הגרות במתחם ומנהל פנימייה",
-     "text": "",
-     "kind": "approach-feature",
-     "time": "",
-     "icon": "home",
-     "order": 22
-    }
-   },
-   {
-    "id": "item-23",
-    "slug": "item-23",
-    "status": "published",
-    "data": {
-     "title": "אווירה משפחתית וקשר אישי עם התלמידים",
-     "text": "",
-     "kind": "approach-feature",
-     "time": "",
-     "icon": "heart",
-     "order": 23
-    }
-   },
-   {
-    "id": "item-24",
-    "slug": "item-24",
-    "status": "published",
-    "data": {
-     "title": "טיולים, ימי שדה, מרצים אורחים ועוד",
-     "text": "",
-     "kind": "approach-feature",
-     "time": "",
-     "icon": "compass",
-     "order": 24
-    }
-   },
-   {
-    "id": "item-25",
-    "slug": "item-25",
-    "status": "published",
-    "data": {
-     "title": "אחוז זכאות גבוה",
-     "text": "אחוז הזכאים לבגרות במערבא הינו מהגבוהים בארץ",
-     "kind": "graduate",
-     "time": "",
-     "icon": "trophy",
-     "order": 25
-    }
-   },
-   {
-    "id": "item-26",
-    "slug": "item-26",
-    "status": "published",
-    "data": {
-     "title": "ישיבות גדולות",
-     "text": "רובם המוחלט של בוגרי מערבא ממשיכים לישיבות הגדולות המובחרות והטובות ביותר",
-     "kind": "graduate",
-     "time": "",
-     "icon": "book",
-     "order": 26
-    }
-   },
-   {
-    "id": "item-27",
-    "slug": "item-27",
-    "status": "published",
-    "data": {
-     "title": "תעודות מצטיינות",
-     "text": "תעודות הבגרות של רוב בוגרי מערבא הינן מהטובות בארץ",
-     "kind": "graduate",
-     "time": "",
-     "icon": "award",
-     "order": 27
-    }
-   },
-   {
-    "id": "item-28",
-    "slug": "item-28",
-    "status": "published",
-    "data": {
-     "title": "הצלחה בכל תחום",
-     "text": "בוגרינו תופסים מקום של כבוד הן בעולם התורה והן בעולם המעשה",
-     "kind": "graduate",
-     "time": "",
-     "icon": "brief",
-     "order": 28
-    }
-   },
-   {
-    "id": "item-29",
-    "slug": "item-29",
-    "status": "published",
-    "data": {
-     "title": "כלל התלמידים לומדים תוכנית המזכה בתעודת בגרות מלאה",
-     "text": "",
-     "kind": "bagrut-point",
-     "time": "",
-     "icon": "",
-     "order": 29
-    }
-   },
-   {
-    "id": "item-30",
-    "slug": "item-30",
-    "status": "published",
-    "data": {
-     "title": "אפשרות להגבר ל-5 יח\"ל במתמטיקה, מחשבים ואנגלית",
-     "text": "",
-     "kind": "bagrut-point",
-     "time": "",
-     "icon": "",
+     "title": "הלכה",
+     "period": "morning",
+     "time": "9:00",
      "order": 30
     }
    },
    {
-    "id": "item-31",
-    "slug": "item-31",
+    "id": "schedule-4",
+    "slug": "schedule-4",
     "status": "published",
     "data": {
-     "title": "מסלול 5 יח\"ל בביולוגיה",
-     "text": "",
-     "kind": "bagrut-point",
-     "time": "",
-     "icon": "",
-     "order": 31
-    }
-   },
-   {
-    "id": "item-32",
-    "slug": "item-32",
-    "status": "published",
-    "data": {
-     "title": "מסלול 5 יח\"ל בפיסיקה",
-     "text": "",
-     "kind": "bagrut-point",
-     "time": "",
-     "icon": "",
-     "order": 32
-    }
-   },
-   {
-    "id": "item-33",
-    "slug": "item-33",
-    "status": "published",
-    "data": {
-     "title": "תכניות לפעילות גופנית בחדר כושר מאובזר עם מדריך מוסמך",
-     "text": "",
-     "kind": "bagrut-point",
-     "time": "",
-     "icon": "",
-     "order": 33
-    }
-   },
-   {
-    "id": "item-34",
-    "slug": "item-34",
-    "status": "published",
-    "data": {
-     "title": "תכנית \"מעורבות חברתית\" של התנדבות ותרומה לקהילה",
-     "text": "",
-     "kind": "bagrut-point",
-     "time": "",
-     "icon": "",
-     "order": 34
-    }
-   },
-   {
-    "id": "item-35",
-    "slug": "item-35",
-    "status": "published",
-    "data": {
-     "title": "בית הכנסת של הישיבה",
-     "text": "",
-     "kind": "gallery",
-     "time": "",
-     "icon": "",
-     "order": 35
-    }
-   },
-   {
-    "id": "item-36",
-    "slug": "item-36",
-    "status": "published",
-    "data": {
-     "title": "לימוד בחברותא",
-     "text": "",
-     "kind": "gallery",
-     "time": "",
-     "icon": "",
-     "order": 36
-    }
-   },
-   {
-    "id": "item-37",
-    "slug": "item-37",
-    "status": "published",
-    "data": {
-     "title": "טיול שנתי",
-     "text": "",
-     "kind": "gallery",
-     "time": "",
-     "icon": "",
-     "order": 37
-    }
-   },
-   {
-    "id": "item-38",
-    "slug": "item-38",
-    "status": "published",
-    "data": {
-     "title": "נגינה בפסנתר",
-     "text": "",
-     "kind": "gallery",
-     "time": "",
-     "icon": "",
-     "order": 38
-    }
-   },
-   {
-    "id": "item-39",
-    "slug": "item-39",
-    "status": "published",
-    "data": {
-     "title": "חצר הישיבה",
-     "text": "",
-     "kind": "gallery",
-     "time": "",
-     "icon": "",
-     "order": 39
-    }
-   },
-   {
-    "id": "item-40",
-    "slug": "item-40",
-    "status": "published",
-    "data": {
-     "title": "יחס אישי",
-     "text": "יחס אישי לכל תלמיד עם התאמה ומעקב צמוד",
-     "kind": "value",
-     "time": "",
-     "icon": "users",
+     "title": "מפגש עם הר\"מ",
+     "period": "morning",
+     "time": "9:50",
      "order": 40
     }
    },
    {
-    "id": "item-41",
-    "slug": "item-41",
+    "id": "schedule-5",
+    "slug": "schedule-5",
     "status": "published",
     "data": {
-     "title": "לימוד תורה",
-     "text": "לימוד מעמיק בגמרא, ראשונים ואחרונים, הלכה ומחשבה",
-     "kind": "value",
-     "time": "",
-     "icon": "book",
-     "order": 41
-    }
-   },
-   {
-    "id": "item-42",
-    "slug": "item-42",
-    "status": "published",
-    "data": {
-     "title": "מצוינות",
-     "text": "שאיפה מתמדת להישגים ולהתקדמות אישית",
-     "kind": "value",
-     "time": "",
-     "icon": "award",
-     "order": 42
-    }
-   },
-   {
-    "id": "item-43",
-    "slug": "item-43",
-    "status": "published",
-    "data": {
-     "title": "עבודת המידות",
-     "text": "דגש על בניית האישיות והמידות לצד הלימוד",
-     "kind": "value",
-     "time": "",
-     "icon": "heart",
-     "order": 43
-    }
-   },
-   {
-    "id": "item-44",
-    "slug": "item-44",
-    "status": "published",
-    "data": {
-     "title": "הרב ברוך צ'ייט",
-     "text": "ראש הישיבה",
-     "kind": "staff-management",
-     "time": "",
-     "icon": "",
-     "order": 44
-    }
-   },
-   {
-    "id": "item-45",
-    "slug": "item-45",
-    "status": "published",
-    "data": {
-     "title": "הרב נתנאל לאאער",
-     "text": "משגיח ור\"מ כיתה ט'",
-     "kind": "staff-management",
-     "time": "",
-     "icon": "",
-     "order": 45
-    }
-   },
-   {
-    "id": "item-46",
-    "slug": "item-46",
-    "status": "published",
-    "data": {
-     "title": "הרב שלמה פולק",
-     "text": "מנהל התיכון",
-     "kind": "staff-management",
-     "time": "",
-     "icon": "",
-     "order": 46
-    }
-   },
-   {
-    "id": "item-47",
-    "slug": "item-47",
-    "status": "published",
-    "data": {
-     "title": "הרב חנוך בנש\"ק",
-     "text": "סגן מנהל, ר\"מ כיתה ט'",
-     "kind": "staff-rabbi",
-     "time": "",
-     "icon": "",
-     "order": 47
-    }
-   },
-   {
-    "id": "item-48",
-    "slug": "item-48",
-    "status": "published",
-    "data": {
-     "title": "הרב צבי זריץ",
-     "text": "ר\"מ כיתה י'",
-     "kind": "staff-rabbi",
-     "time": "",
-     "icon": "",
-     "order": 48
-    }
-   },
-   {
-    "id": "item-49",
-    "slug": "item-49",
-    "status": "published",
-    "data": {
-     "title": "הרב פנחס לובלינר",
-     "text": "ר\"מ כיתה י\"א",
-     "kind": "staff-rabbi",
-     "time": "",
-     "icon": "",
-     "order": 49
-    }
-   },
-   {
-    "id": "item-50",
-    "slug": "item-50",
-    "status": "published",
-    "data": {
-     "title": "הרב יוסף דוד קרלינסקי",
-     "text": "ר\"מ כיתה י\"ב",
-     "kind": "staff-rabbi",
-     "time": "",
-     "icon": "",
+     "title": "סדר הכנה לימוד בחברותא - גמרא בעיון",
+     "period": "morning",
+     "time": "10:00",
      "order": 50
     }
    },
    {
-    "id": "item-51",
-    "slug": "item-51",
+    "id": "schedule-6",
+    "slug": "schedule-6",
+    "status": "published",
+    "data": {
+     "title": "שיעור גמרא בעיון",
+     "period": "morning",
+     "time": "11:45",
+     "order": 60
+    }
+   },
+   {
+    "id": "schedule-7",
+    "slug": "schedule-7",
+    "status": "published",
+    "data": {
+     "title": "ארוחת צהריים והפסקה",
+     "period": "noon",
+     "time": "13:00",
+     "order": 70
+    }
+   },
+   {
+    "id": "schedule-8",
+    "slug": "schedule-8",
+    "status": "published",
+    "data": {
+     "title": "תפילת מנחה",
+     "period": "noon",
+     "time": "14:30",
+     "order": 80
+    }
+   },
+   {
+    "id": "schedule-9",
+    "slug": "schedule-9",
+    "status": "published",
+    "data": {
+     "title": "שיעור גמרא בקיאות",
+     "period": "noon",
+     "time": "15:00",
+     "order": 90
+    }
+   },
+   {
+    "id": "schedule-10",
+    "slug": "schedule-10",
+    "status": "published",
+    "data": {
+     "title": "לימודי אחר הצהריים",
+     "period": "noon",
+     "time": "16:30",
+     "order": 100
+    }
+   },
+   {
+    "id": "schedule-11",
+    "slug": "schedule-11",
+    "status": "published",
+    "data": {
+     "title": "ארוחת ערב והפסקה",
+     "period": "evening",
+     "time": "19:30",
+     "order": 110
+    }
+   },
+   {
+    "id": "schedule-12",
+    "slug": "schedule-12",
+    "status": "published",
+    "data": {
+     "title": "תפילה ערבית",
+     "period": "evening",
+     "time": "20:15",
+     "order": 120
+    }
+   },
+   {
+    "id": "schedule-13",
+    "slug": "schedule-13",
+    "status": "published",
+    "data": {
+     "title": "סדר חזרה גמרא בעיון",
+     "period": "evening",
+     "time": "20:30",
+     "order": 130
+    }
+   },
+   {
+    "id": "schedule-14",
+    "slug": "schedule-14",
+    "status": "published",
+    "data": {
+     "title": "סיום יום הלימודים הרשמי",
+     "period": "evening",
+     "time": "21:30",
+     "order": 140
+    }
+   }
+  ],
+  "approach_features": [
+   {
+    "id": "approach_features-1",
+    "slug": "approach_features-1",
+    "status": "published",
+    "data": {
+     "title": "צוות מקצועי ומנוסה הכולל שני מדריכים",
+     "order": 10,
+     "icon": "users"
+    }
+   },
+   {
+    "id": "approach_features-2",
+    "slug": "approach_features-2",
+    "status": "published",
+    "data": {
+     "title": "משפחות הגרות במתחם ומנהל פנימייה",
+     "order": 20,
+     "icon": "home"
+    }
+   },
+   {
+    "id": "approach_features-3",
+    "slug": "approach_features-3",
+    "status": "published",
+    "data": {
+     "title": "אווירה משפחתית וקשר אישי עם התלמידים",
+     "order": 30,
+     "icon": "heart"
+    }
+   },
+   {
+    "id": "approach_features-4",
+    "slug": "approach_features-4",
+    "status": "published",
+    "data": {
+     "title": "טיולים, ימי שדה, מרצים אורחים ועוד",
+     "order": 40,
+     "icon": "compass"
+    }
+   }
+  ],
+  "graduates": [
+   {
+    "id": "graduates-1",
+    "slug": "graduates-1",
+    "status": "published",
+    "data": {
+     "title": "אחוז זכאות גבוה",
+     "order": 10,
+     "text": "אחוז הזכאים לבגרות במערבא הינו מהגבוהים בארץ",
+     "icon": "trophy"
+    }
+   },
+   {
+    "id": "graduates-2",
+    "slug": "graduates-2",
+    "status": "published",
+    "data": {
+     "title": "ישיבות גדולות",
+     "order": 20,
+     "text": "רובם המוחלט של בוגרי מערבא ממשיכים לישיבות הגדולות המובחרות והטובות ביותר",
+     "icon": "book"
+    }
+   },
+   {
+    "id": "graduates-3",
+    "slug": "graduates-3",
+    "status": "published",
+    "data": {
+     "title": "תעודות מצטיינות",
+     "order": 30,
+     "text": "תעודות הבגרות של רוב בוגרי מערבא הינן מהטובות בארץ",
+     "icon": "award"
+    }
+   },
+   {
+    "id": "graduates-4",
+    "slug": "graduates-4",
+    "status": "published",
+    "data": {
+     "title": "הצלחה בכל תחום",
+     "order": 40,
+     "text": "בוגרינו תופסים מקום של כבוד הן בעולם התורה והן בעולם המעשה",
+     "icon": "brief"
+    }
+   }
+  ],
+  "bagrut_points": [
+   {
+    "id": "bagrut_points-1",
+    "slug": "bagrut_points-1",
+    "status": "published",
+    "data": {
+     "title": "כלל התלמידים לומדים תוכנית המזכה בתעודת בגרות מלאה",
+     "order": 10
+    }
+   },
+   {
+    "id": "bagrut_points-2",
+    "slug": "bagrut_points-2",
+    "status": "published",
+    "data": {
+     "title": "אפשרות להגבר ל-5 יח\"ל במתמטיקה, מחשבים ואנגלית",
+     "order": 20
+    }
+   },
+   {
+    "id": "bagrut_points-3",
+    "slug": "bagrut_points-3",
+    "status": "published",
+    "data": {
+     "title": "מסלול 5 יח\"ל בביולוגיה",
+     "order": 30
+    }
+   },
+   {
+    "id": "bagrut_points-4",
+    "slug": "bagrut_points-4",
+    "status": "published",
+    "data": {
+     "title": "מסלול 5 יח\"ל בפיסיקה",
+     "order": 40
+    }
+   },
+   {
+    "id": "bagrut_points-5",
+    "slug": "bagrut_points-5",
+    "status": "published",
+    "data": {
+     "title": "תכניות לפעילות גופנית בחדר כושר מאובזר עם מדריך מוסמך",
+     "order": 50
+    }
+   },
+   {
+    "id": "bagrut_points-6",
+    "slug": "bagrut_points-6",
+    "status": "published",
+    "data": {
+     "title": "תכנית \"מעורבות חברתית\" של התנדבות ותרומה לקהילה",
+     "order": 60
+    }
+   }
+  ],
+  "values": [
+   {
+    "id": "values-1",
+    "slug": "values-1",
+    "status": "published",
+    "data": {
+     "title": "יחס אישי",
+     "order": 10,
+     "text": "יחס אישי לכל תלמיד עם התאמה ומעקב צמוד",
+     "icon": "users"
+    }
+   },
+   {
+    "id": "values-2",
+    "slug": "values-2",
+    "status": "published",
+    "data": {
+     "title": "לימוד תורה",
+     "order": 20,
+     "text": "לימוד מעמיק בגמרא, ראשונים ואחרונים, הלכה ומחשבה",
+     "icon": "book"
+    }
+   },
+   {
+    "id": "values-3",
+    "slug": "values-3",
+    "status": "published",
+    "data": {
+     "title": "מצוינות",
+     "order": 30,
+     "text": "שאיפה מתמדת להישגים ולהתקדמות אישית",
+     "icon": "award"
+    }
+   },
+   {
+    "id": "values-4",
+    "slug": "values-4",
+    "status": "published",
+    "data": {
+     "title": "עבודת המידות",
+     "order": 40,
+     "text": "דגש על בניית האישיות והמידות לצד הלימוד",
+     "icon": "heart"
+    }
+   }
+  ],
+  "staff": [
+   {
+    "id": "staff-1",
+    "slug": "staff-1",
+    "status": "published",
+    "data": {
+     "title": "הרב ברוך צ'ייט",
+     "text": "ראש הישיבה",
+     "group": "management",
+     "order": 10
+    }
+   },
+   {
+    "id": "staff-2",
+    "slug": "staff-2",
+    "status": "published",
+    "data": {
+     "title": "הרב נתנאל לאאער",
+     "text": "משגיח ור\"מ כיתה ט'",
+     "group": "management",
+     "order": 20
+    }
+   },
+   {
+    "id": "staff-3",
+    "slug": "staff-3",
+    "status": "published",
+    "data": {
+     "title": "הרב שלמה פולק",
+     "text": "מנהל התיכון",
+     "group": "management",
+     "order": 30
+    }
+   },
+   {
+    "id": "staff-4",
+    "slug": "staff-4",
+    "status": "published",
+    "data": {
+     "title": "הרב חנוך בנש\"ק",
+     "text": "סגן מנהל, ר\"מ כיתה ט'",
+     "group": "rabbi",
+     "order": 40
+    }
+   },
+   {
+    "id": "staff-5",
+    "slug": "staff-5",
+    "status": "published",
+    "data": {
+     "title": "הרב צבי זריץ",
+     "text": "ר\"מ כיתה י'",
+     "group": "rabbi",
+     "order": 50
+    }
+   },
+   {
+    "id": "staff-6",
+    "slug": "staff-6",
+    "status": "published",
+    "data": {
+     "title": "הרב פנחס לובלינר",
+     "text": "ר\"מ כיתה י\"א",
+     "group": "rabbi",
+     "order": 60
+    }
+   },
+   {
+    "id": "staff-7",
+    "slug": "staff-7",
+    "status": "published",
+    "data": {
+     "title": "הרב יוסף דוד קרלינסקי",
+     "text": "ר\"מ כיתה י\"ב",
+     "group": "rabbi",
+     "order": 70
+    }
+   },
+   {
+    "id": "staff-8",
+    "slug": "staff-8",
     "status": "published",
     "data": {
      "title": "הרב טל מינץ",
      "text": "אחראי פנימיה",
-     "kind": "staff-rabbi",
-     "time": "",
-     "icon": "",
-     "order": 51
+     "group": "rabbi",
+     "order": 80
     }
    },
    {
-    "id": "item-52",
-    "slug": "item-52",
+    "id": "staff-9",
+    "slug": "staff-9",
     "status": "published",
     "data": {
      "title": "הרב יאיר שוורץ",
      "text": "סגן מנהל תיכון, משיג כיתה ט'",
-     "kind": "staff-rabbi",
-     "time": "",
-     "icon": "",
-     "order": 52
+     "group": "rabbi",
+     "order": 90
     }
    }
   ]
