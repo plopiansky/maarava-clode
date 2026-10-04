@@ -133,14 +133,14 @@ export interface Value {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
-export interface Staff {
+export interface Gallery {
   id: string;
   slug: string | null;
   status: string;
   title: string;
-  text?: string;
-  group: "management" | "rabbi";
   image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  text?: string;
+  featured?: boolean;
   order?: number;
   createdAt: Date;
   updatedAt: Date;
@@ -150,14 +150,14 @@ export interface Staff {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
-export interface Gallery {
+export interface Staff {
   id: string;
   slug: string | null;
   status: string;
   title: string;
-  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
   text?: string;
-  featured?: boolean;
+  group: "management" | "rabbi";
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
   order?: number;
   createdAt: Date;
   updatedAt: Date;
@@ -177,7 +177,7 @@ declare module "emdash" {
     graduates: Graduate;
     bagrut_points: BagrutPoint;
     values: Value;
-    staff: Staff;
     gallery: Gallery;
+    staff: Staff;
   }
 }
