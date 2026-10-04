@@ -80,7 +80,9 @@
        "graduate",
        "bagrut-point",
        "gallery",
-       "value"
+       "value",
+       "staff-management",
+       "staff-rabbi"
       ]
      }
     },
@@ -278,6 +280,46 @@
      "title": "המיקום שלנו",
      "subtitle": "דואר קרית ספר, מרכז קסם ד.נ. מודיעין 7191900",
      "body": "הישיבה ממוקמת על יד מושב מתתיהו. המיקום נגיש מכל רחבי המרכז ומאפשר סביבת לימוד שקטה ואיכותית."
+    }
+   },
+   {
+    "id": "sec-staff-hero",
+    "slug": "staff-hero",
+    "status": "published",
+    "data": {
+     "title": "צוות הישיבה",
+     "subtitle": "ר\"מים ומחנכים מהשורה הראשונה, המלווים את התלמידים בדרך התורה",
+     "body": ""
+    }
+   },
+   {
+    "id": "sec-staff-management",
+    "slug": "staff-management",
+    "status": "published",
+    "data": {
+     "title": "הנהלת הישיבה",
+     "subtitle": "",
+     "body": ""
+    }
+   },
+   {
+    "id": "sec-staff-rabbis",
+    "slug": "staff-rabbis",
+    "status": "published",
+    "data": {
+     "title": "רבני הישיבה",
+     "subtitle": "",
+     "body": "אנשי הצוות בישיבת \"מערבא\" מהווים נדבך מרכזי בהצלחתה החינוכית והרוחנית של הישיבה. צוות הרבנים והמורים פועל מתוך שליחות עמוקה לחינוך לתורה, יראת שמים ומידות טובות, ומשלב מקצועיות פדגוגית עם יחס אישי חם ומסור לכל תלמיד. רבני הישיבה הם בעלי ניסיון רחב שנים, יושבים על מדין ומעמידים דוגמה חיה לחיים של עמל התורה, שקידה והתמדה. לצד זאת, צוות המורים הכלליים מביא עמו ידע מקצועי, אחריות ואכפתיות, מתוך הבנה שחינוך שלם כולל גם הכנה אמיתית לחיי המעשה. אנשי הצוות מקפידים על קשר רציף עם התלמידים, ליווי צמוד, והכוונה בכל שלב - הן בלימוד והן בהתפתחות האישית. במסגרת הפנימייה פועל צוות מדריכים ומשפחות בית, המעניקים אווירה חינוכית תומכת וביתית גם מעבר לשעות הלימודים. שילוב הכוחות בין רבני הישיבה, המורים, המדריכים והצוות המנהל יוצר סביבה חינוכית יציבה, רצינית ומעוררת השראה, המאפשרת לכל תלמיד לגדול ולהיבנות בדרך התורה, היראה והדרך ארץ."
+    }
+   },
+   {
+    "id": "sec-staff-cta",
+    "slug": "staff-cta",
+    "status": "published",
+    "data": {
+     "title": "רוצים להכיר את הצוות מקרוב?",
+     "subtitle": "",
+     "body": "מוזמנים להגיע לביקור בישיבה ולהתרשם"
     }
    }
   ],
@@ -839,6 +881,123 @@
      "time": "",
      "icon": "heart",
      "order": 43
+    }
+   },
+   {
+    "id": "item-44",
+    "slug": "item-44",
+    "status": "published",
+    "data": {
+     "title": "הרב ברוך צ'ייט",
+     "text": "ראש הישיבה",
+     "kind": "staff-management",
+     "time": "",
+     "icon": "",
+     "order": 44
+    }
+   },
+   {
+    "id": "item-45",
+    "slug": "item-45",
+    "status": "published",
+    "data": {
+     "title": "הרב נתנאל לאאער",
+     "text": "משגיח ור\"מ כיתה ט'",
+     "kind": "staff-management",
+     "time": "",
+     "icon": "",
+     "order": 45
+    }
+   },
+   {
+    "id": "item-46",
+    "slug": "item-46",
+    "status": "published",
+    "data": {
+     "title": "הרב שלמה פולק",
+     "text": "מנהל התיכון",
+     "kind": "staff-management",
+     "time": "",
+     "icon": "",
+     "order": 46
+    }
+   },
+   {
+    "id": "item-47",
+    "slug": "item-47",
+    "status": "published",
+    "data": {
+     "title": "הרב חנוך בנש\"ק",
+     "text": "סגן מנהל, ר\"מ כיתה ט'",
+     "kind": "staff-rabbi",
+     "time": "",
+     "icon": "",
+     "order": 47
+    }
+   },
+   {
+    "id": "item-48",
+    "slug": "item-48",
+    "status": "published",
+    "data": {
+     "title": "הרב צבי זריץ",
+     "text": "ר\"מ כיתה י'",
+     "kind": "staff-rabbi",
+     "time": "",
+     "icon": "",
+     "order": 48
+    }
+   },
+   {
+    "id": "item-49",
+    "slug": "item-49",
+    "status": "published",
+    "data": {
+     "title": "הרב פנחס לובלינר",
+     "text": "ר\"מ כיתה י\"א",
+     "kind": "staff-rabbi",
+     "time": "",
+     "icon": "",
+     "order": 49
+    }
+   },
+   {
+    "id": "item-50",
+    "slug": "item-50",
+    "status": "published",
+    "data": {
+     "title": "הרב יוסף דוד קרלינסקי",
+     "text": "ר\"מ כיתה י\"ב",
+     "kind": "staff-rabbi",
+     "time": "",
+     "icon": "",
+     "order": 50
+    }
+   },
+   {
+    "id": "item-51",
+    "slug": "item-51",
+    "status": "published",
+    "data": {
+     "title": "הרב טל מינץ",
+     "text": "אחראי פנימיה",
+     "kind": "staff-rabbi",
+     "time": "",
+     "icon": "",
+     "order": 51
+    }
+   },
+   {
+    "id": "item-52",
+    "slug": "item-52",
+    "status": "published",
+    "data": {
+     "title": "הרב יאיר שוורץ",
+     "text": "סגן מנהל תיכון, משיג כיתה ט'",
+     "kind": "staff-rabbi",
+     "time": "",
+     "icon": "",
+     "order": 52
     }
    }
   ]

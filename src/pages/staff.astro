@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSite, imgOf } from "../lib/content";
+import { PHONE, PHONE_HREF, EMAIL } from "../lib/config";
+
+const { sec, kind } = await loadSite();
+const hero = sec["staff-hero"] ?? {};
+const mgmt = sec["staff-management"] ?? {};
+const rabbis = sec["staff-rabbis"] ?? {};
+const cta = sec["staff-cta"] ?? {};
+const person = (p: any) => ({ ...p, img: imgOf(p.image) });
+---
+<Base active="staff" title="צוות הישיבה – ישיבת מערבא">
+<main>
+	<section class="page-hero">
+		<div class="container">
+			<h1>{hero.title}</h1>
+			<p>{hero.subtitle}</p>
+		</div>
+	</section>
+
+	<section class="staff-sec staff-mgmt">
+		<div class="container">
+			<h2 class="staff-title reveal">{mgmt.title}</h2>
+			<div class="staff-grid big">
+				{kind("staff-management").map(person).map((p: any) => (
+					<article class="person p-gold reveal">
+						<div class="avatar">{p.img ? <img src={p.img.src} alt={p.title} loading="lazy" /> : <svg><use href="#i-user" /></svg>}</div>
+						<h3>{p.title}</h3>
+						<p>{p.text}</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<div class="divider"><span></span><i></i><i class="m"></i><i></i><span></span></div>
+
+	<section class="staff-sec staff-rabbis">
+		<div class="container">
+			<h2 class="staff-title reveal">{rabbis.title}</h2>
+			<div class="card-text reveal">{rabbis.body}</div>
+			<div class="staff-grid six">
+				{kind("staff-rabbi").map(person).map((p: any) => (
+					<article class="person p-maroon reveal">
+						<div class="avatar">{p.img ? <img src={p.img.src} alt={p.title} loading="lazy" /> : <svg><use href="#i-user" /></svg>}</div>
+						<h3>{p.title}</h3>
+						<p>{p.text}</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="staff-cta">
+		<div class="container center reveal">
+			<h2>{cta.title}</h2>
+			<p>{cta.body}</p>
+			<div class="join-btns">
+				<a href={PHONE_HREF} class="btn btn-white"><span dir="ltr">{PHONE}</span><svg class="ic"><use href="#i-phone" /></svg></a>
+				<a href={`mailto:${EMAIL}`} class="btn btn-ghost">שלחו מייל<svg class="ic"><use href="#i-mail" /></svg></a>
+			</div>
+		</div>
+	</section>
+</main>
+</Base>
