@@ -8,7 +8,8 @@ const hero = sec["staff-hero"] ?? {};
 const mgmt = sec["staff-management"] ?? {};
 const rabbis = sec["staff-rabbis"] ?? {};
 const cta = sec["staff-cta"] ?? {};
-const person = (p: any) => ({ ...p, img: imgOf(p.image) });
+// The head of the yeshiva (first management entry) defaults to the same photo as the home page until one is uploaded.
+const person = (p: any) => ({ ...p, img: imgOf(p.image) ?? (p._slug === "staff-1" ? { src: "/rosh.jpg" } : null) });
 ---
 <Base active="staff" title="צוות הישיבה – ישיבת מערבא">
 <main>

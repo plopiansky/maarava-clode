@@ -9,7 +9,7 @@ const reg = { href: regUrl, target: "_blank", rel: "noopener" };
 const hero = sec.hero ?? {};
 const rosh = sec.rosh ?? {};
 const vision = sec.vision ?? {};
-const roshImg = imgOf(rosh.image);
+const roshImg = imgOf(rosh.image) ?? { src: "/rosh.jpg", alt: rosh.title };
 const heroImg = imgOf(hero.image);
 const schedule = [
 	{ key: "schedule-morning", title: "בוקר", cls: "maroon" },
