@@ -1,0 +1,727 @@
+{
+ "version": "1",
+ "meta": {
+  "name": "Maarava Yeshiva",
+  "description": "Content for yeshivat Maarava site"
+ },
+ "settings": {
+  "title": "ישיבת מערבא – מכון רובין",
+  "tagline": "מושב מתתיהו"
+ },
+ "collections": [
+  {
+   "slug": "sections",
+   "label": "אזורי האתר",
+   "labelSingular": "אזור",
+   "supports": [
+    "drafts"
+   ],
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "subtitle",
+     "label": "כותרת משנה",
+     "type": "string"
+    },
+    {
+     "slug": "body",
+     "label": "טקסט (פסקה ריקה = פסקה חדשה, **מודגש**)",
+     "type": "text"
+    },
+    {
+     "slug": "image",
+     "label": "תמונה",
+     "type": "image"
+    }
+   ]
+  },
+  {
+   "slug": "items",
+   "label": "פריטים (כרטיסים, שעות, גלריה)",
+   "labelSingular": "פריט",
+   "supports": [
+    "drafts"
+   ],
+   "fields": [
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "text",
+     "label": "טקסט",
+     "type": "text"
+    },
+    {
+     "slug": "kind",
+     "label": "סוג",
+     "type": "select",
+     "required": true,
+     "validation": {
+      "options": [
+       "pillar",
+       "track",
+       "schedule-morning",
+       "schedule-noon",
+       "schedule-evening",
+       "approach-feature",
+       "graduate",
+       "bagrut-point",
+       "gallery"
+      ]
+     }
+    },
+    {
+     "slug": "time",
+     "label": "שעה (לסדר יום)",
+     "type": "string"
+    },
+    {
+     "slug": "icon",
+     "label": "אייקון (user, heart, dumbbell, book, cap, users, home, compass, trophy, award, brief)",
+     "type": "string"
+    },
+    {
+     "slug": "order",
+     "label": "סדר",
+     "type": "integer"
+    },
+    {
+     "slug": "image",
+     "label": "תמונה",
+     "type": "image"
+    }
+   ]
+  }
+ ],
+ "content": {
+  "sections": [
+   {
+    "id": "sec-hero",
+    "slug": "hero",
+    "status": "published",
+    "data": {
+     "title": "ישיבת מערבא",
+     "subtitle": "מכון רובין",
+     "body": "מקום 12 ברשימת התיכונים המצטיינים בישראל"
+    }
+   },
+   {
+    "id": "sec-rosh",
+    "slug": "rosh",
+    "status": "published",
+    "data": {
+     "title": "הרב ברוך צ'ייט שליט\"א",
+     "subtitle": "מייסד וראש ישיבת מערבא",
+     "body": "מטרת הישיבה להעמיד תלמידי חכמים המצליחים ומצטיינים בכל תחומי החיים - בתורה, במידות טובות ובהכנה לחיי המעשה, שמקדשים שם שמים."
+    }
+   },
+   {
+    "id": "sec-vision",
+    "slug": "vision",
+    "status": "published",
+    "data": {
+     "title": "ישיבת \"מערבא\" - חזון ומטרות",
+     "subtitle": "אנו רואים כאידאל את משולש השלמות:",
+     "body": "מערבא הציבה לה למטרה להעמיד **תלמידי חכמים המצליחים ומצטיינים בכל תחומי החיים**.\n\nהרעיון המנחה הוא הקניית \"מפתחות לחיים\" לתלמיד שיאפשרו לו למקסם את יכולותיו וכישרונותיו בהמשך דרכו בין בעולם התורה ובין בעולם המעשה, אם יבחר בכך.\n\nלצד ההצטיינות בלימוד התורה, מושם דגש על **מידות טובות, אמת, יושר ולימוד בספרי המוסר**. השילוב הייחודי של חינוך לתורה, הכנה לחיי מעשה, פעילות ומסירות לכלל ישראל יחד עם דרך ארץ, מביאים את תלמידינו ובוגרינו לקדש שם שמים בכל מקום שהם נמצאים ובכל תחומי החיים."
+    }
+   },
+   {
+    "id": "sec-tracks",
+    "slug": "tracks",
+    "status": "published",
+    "data": {
+     "title": "מסלולי הלימוד",
+     "subtitle": "מגוון מסלולים המותאמים לצרכים השונים של התלמידים",
+     "body": ""
+    }
+   },
+   {
+    "id": "sec-schedule",
+    "slug": "schedule",
+    "status": "published",
+    "data": {
+     "title": "סדר יום הלימודים במערבא",
+     "subtitle": "זמני הלימודים ולוח החופשות נקבע כפי הנהוג בישיבות, בחלוקה ל\"זמן אלול\", \"זמן חורף\" ו\"זמן קיץ\".",
+     "body": ""
+    }
+   },
+   {
+    "id": "sec-mishmar",
+    "slug": "mishmar",
+    "status": "published",
+    "data": {
+     "title": "משמר ליל שישי",
+     "subtitle": "",
+     "body": "בכל שבוע בליל שישי, ב\"משמר\" שנערך בישיבה, בחורים עורכים סיומי מסכתות על מסכתות גמרא שלמדו מחוץ לתכנית הלימודים הרגילה."
+    }
+   },
+   {
+    "id": "sec-approach",
+    "slug": "approach",
+    "status": "published",
+    "data": {
+     "title": "הגישה החינוכית",
+     "subtitle": "",
+     "body": "אנו מאמינים בפיתוח ה\"אדם\" כנדבך ראשון הכרחי להתהוות אישיות ה\"בן תורה\". האווירה המיוחדת השוררת בישיבה, ההתלהבות, טיפוח הקשר האישי בין התלמידים לרבני הישיבה ובין החברים עצמם, מהווים חלק אינטגרלי בבניה ובהתפתחות של האדם השלם בבחינת **\"גדלות האדם\"**.\n\nחיי פנימיה מאפשרים חממה מתאימה וסביבה משלימה בסיום יום הלימודים. לתלמידים יש את הזמן והאפשרות להמשיך ולהתפתח גם מחוץ למסגרת הלימודית ולפתח קשרים בין החברים והצוות. **בפנימייה צוות מקצועי ומנוסה** הכולל שני מדריכים, משפחות הגרות במתחם ומנהל פנימייה.\n\nמתוך עיקרון זה אנו מוסיפים גם תכניות נוספות מעבר לתכנית הלימודים הרגילה - \"משמר\" ליל שישי, חגים בישיבה, טיולים, ימי שדה, מרצים אורחים ועוד. כל אלו מעשירים ומגדלים את אישיותו של התלמיד, לשמחת החיים, לאהבת האדם, אהבת התורה ואהבת ארץ ישראל."
+    }
+   },
+   {
+    "id": "sec-gallery",
+    "slug": "gallery",
+    "status": "published",
+    "data": {
+     "title": "החיים בישיבה",
+     "subtitle": "תורה, ספורט, מוסיקה, טיולים ועוד - חיי ישיבה מלאים ומגוונים",
+     "body": "גלריה"
+    }
+   },
+   {
+    "id": "sec-graduates",
+    "slug": "graduates",
+    "status": "published",
+    "data": {
+     "title": "בוגרינו",
+     "subtitle": "בוגרי מערבא ידועים כמשקיעים, מצטיינים, אנשים חושבים בצורה רחבה, בעלי מוטיבציה גבוהה, ידע רב ומוכנות לתרום מכישרונם וכוחם לטובת כלל ישראל",
+     "body": ""
+    }
+   },
+   {
+    "id": "sec-bagrut",
+    "slug": "bagrut",
+    "status": "published",
+    "data": {
+     "title": "מסלולי בגרות",
+     "subtitle": "",
+     "body": ""
+    }
+   },
+   {
+    "id": "sec-join",
+    "slug": "join",
+    "status": "published",
+    "data": {
+     "title": "הצטרפו למשפחת מערבא",
+     "subtitle": "",
+     "body": "מוזמנים להגיע לביקור, להכיר את הישיבה מקרוב ולהתרשם מהאווירה הייחודית"
+    }
+   }
+  ],
+  "items": [
+   {
+    "id": "item-1",
+    "slug": "item-1",
+    "status": "published",
+    "data": {
+     "title": "מוח",
+     "text": "בלימוד התורה ולהבדיל, בשאר מקצועות",
+     "kind": "pillar",
+     "time": "",
+     "icon": "user",
+     "order": 1
+    }
+   },
+   {
+    "id": "item-2",
+    "slug": "item-2",
+    "status": "published",
+    "data": {
+     "title": "נפש",
+     "text": "ביראת שמים, בתפילה, במידות טובות, בפיתוח האישיות ובפעילויות חברתיות - שירה וניגון",
+     "kind": "pillar",
+     "time": "",
+     "icon": "heart",
+     "order": 2
+    }
+   },
+   {
+    "id": "item-3",
+    "slug": "item-3",
+    "status": "published",
+    "data": {
+     "title": "גוף",
+     "text": "בבריאות, תזונה טובה, פעילות גופנית, ספורט וכושר",
+     "kind": "pillar",
+     "time": "",
+     "icon": "dumbbell",
+     "order": 3
+    }
+   },
+   {
+    "id": "item-4",
+    "slug": "item-4",
+    "status": "published",
+    "data": {
+     "title": "קודש - כי הם חיינו",
+     "text": "תכנית לימודים מבוססת על שלושה סדרי לימוד: בוקר, אחה\"צ וערב. גמרא בעיון, הלכה ומחשבה",
+     "kind": "track",
+     "time": "",
+     "icon": "book",
+     "order": 4
+    }
+   },
+   {
+    "id": "item-5",
+    "slug": "item-5",
+    "status": "published",
+    "data": {
+     "title": "בגרויות מלאות",
+     "text": "תעודת בגרות מלאה בציונים גבוהים. אפשרות ל-5 יח\"ל במתמטיקה, אנגלית, מחשבים, ביולוגיה ופיסיקה.",
+     "kind": "track",
+     "time": "",
+     "icon": "cap",
+     "order": 5
+    }
+   },
+   {
+    "id": "item-6",
+    "slug": "item-6",
+    "status": "published",
+    "data": {
+     "title": "יחס אישי",
+     "text": "רבני הישיבה וצוות המורים בעלי ניסיון וותק רב בהוראה ובעלי יחס אישי ואיכפתי לכל תלמיד",
+     "kind": "track",
+     "time": "",
+     "icon": "users",
+     "order": 6
+    }
+   },
+   {
+    "id": "item-7",
+    "slug": "item-7",
+    "status": "published",
+    "data": {
+     "title": "תפילת שחרית",
+     "text": "",
+     "kind": "schedule-morning",
+     "time": "7:15",
+     "icon": "",
+     "order": 7
+    }
+   },
+   {
+    "id": "item-8",
+    "slug": "item-8",
+    "status": "published",
+    "data": {
+     "title": "ארוחת בוקר",
+     "text": "",
+     "kind": "schedule-morning",
+     "time": "-",
+     "icon": "",
+     "order": 8
+    }
+   },
+   {
+    "id": "item-9",
+    "slug": "item-9",
+    "status": "published",
+    "data": {
+     "title": "הלכה",
+     "text": "",
+     "kind": "schedule-morning",
+     "time": "9:00",
+     "icon": "",
+     "order": 9
+    }
+   },
+   {
+    "id": "item-10",
+    "slug": "item-10",
+    "status": "published",
+    "data": {
+     "title": "מפגש עם הר\"מ",
+     "text": "",
+     "kind": "schedule-morning",
+     "time": "9:50",
+     "icon": "",
+     "order": 10
+    }
+   },
+   {
+    "id": "item-11",
+    "slug": "item-11",
+    "status": "published",
+    "data": {
+     "title": "סדר הכנה לימוד בחברותא - גמרא בעיון",
+     "text": "",
+     "kind": "schedule-morning",
+     "time": "10:00",
+     "icon": "",
+     "order": 11
+    }
+   },
+   {
+    "id": "item-12",
+    "slug": "item-12",
+    "status": "published",
+    "data": {
+     "title": "שיעור גמרא בעיון",
+     "text": "",
+     "kind": "schedule-morning",
+     "time": "11:45",
+     "icon": "",
+     "order": 12
+    }
+   },
+   {
+    "id": "item-13",
+    "slug": "item-13",
+    "status": "published",
+    "data": {
+     "title": "ארוחת צהריים והפסקה",
+     "text": "",
+     "kind": "schedule-noon",
+     "time": "13:00",
+     "icon": "",
+     "order": 13
+    }
+   },
+   {
+    "id": "item-14",
+    "slug": "item-14",
+    "status": "published",
+    "data": {
+     "title": "תפילת מנחה",
+     "text": "",
+     "kind": "schedule-noon",
+     "time": "14:30",
+     "icon": "",
+     "order": 14
+    }
+   },
+   {
+    "id": "item-15",
+    "slug": "item-15",
+    "status": "published",
+    "data": {
+     "title": "שיעור גמרא בקיאות",
+     "text": "",
+     "kind": "schedule-noon",
+     "time": "15:00",
+     "icon": "",
+     "order": 15
+    }
+   },
+   {
+    "id": "item-16",
+    "slug": "item-16",
+    "status": "published",
+    "data": {
+     "title": "לימודי אחר הצהריים",
+     "text": "",
+     "kind": "schedule-noon",
+     "time": "16:30",
+     "icon": "",
+     "order": 16
+    }
+   },
+   {
+    "id": "item-17",
+    "slug": "item-17",
+    "status": "published",
+    "data": {
+     "title": "ארוחת ערב והפסקה",
+     "text": "",
+     "kind": "schedule-evening",
+     "time": "19:30",
+     "icon": "",
+     "order": 17
+    }
+   },
+   {
+    "id": "item-18",
+    "slug": "item-18",
+    "status": "published",
+    "data": {
+     "title": "תפילה ערבית",
+     "text": "",
+     "kind": "schedule-evening",
+     "time": "20:15",
+     "icon": "",
+     "order": 18
+    }
+   },
+   {
+    "id": "item-19",
+    "slug": "item-19",
+    "status": "published",
+    "data": {
+     "title": "סדר חזרה גמרא בעיון",
+     "text": "",
+     "kind": "schedule-evening",
+     "time": "20:30",
+     "icon": "",
+     "order": 19
+    }
+   },
+   {
+    "id": "item-20",
+    "slug": "item-20",
+    "status": "published",
+    "data": {
+     "title": "סיום יום הלימודים הרשמי",
+     "text": "",
+     "kind": "schedule-evening",
+     "time": "21:30",
+     "icon": "",
+     "order": 20
+    }
+   },
+   {
+    "id": "item-21",
+    "slug": "item-21",
+    "status": "published",
+    "data": {
+     "title": "צוות מקצועי ומנוסה הכולל שני מדריכים",
+     "text": "",
+     "kind": "approach-feature",
+     "time": "",
+     "icon": "users",
+     "order": 21
+    }
+   },
+   {
+    "id": "item-22",
+    "slug": "item-22",
+    "status": "published",
+    "data": {
+     "title": "משפחות הגרות במתחם ומנהל פנימייה",
+     "text": "",
+     "kind": "approach-feature",
+     "time": "",
+     "icon": "home",
+     "order": 22
+    }
+   },
+   {
+    "id": "item-23",
+    "slug": "item-23",
+    "status": "published",
+    "data": {
+     "title": "אווירה משפחתית וקשר אישי עם התלמידים",
+     "text": "",
+     "kind": "approach-feature",
+     "time": "",
+     "icon": "heart",
+     "order": 23
+    }
+   },
+   {
+    "id": "item-24",
+    "slug": "item-24",
+    "status": "published",
+    "data": {
+     "title": "טיולים, ימי שדה, מרצים אורחים ועוד",
+     "text": "",
+     "kind": "approach-feature",
+     "time": "",
+     "icon": "compass",
+     "order": 24
+    }
+   },
+   {
+    "id": "item-25",
+    "slug": "item-25",
+    "status": "published",
+    "data": {
+     "title": "אחוז זכאות גבוה",
+     "text": "אחוז הזכאים לבגרות במערבא הינו מהגבוהים בארץ",
+     "kind": "graduate",
+     "time": "",
+     "icon": "trophy",
+     "order": 25
+    }
+   },
+   {
+    "id": "item-26",
+    "slug": "item-26",
+    "status": "published",
+    "data": {
+     "title": "ישיבות גדולות",
+     "text": "רובם המוחלט של בוגרי מערבא ממשיכים לישיבות הגדולות המובחרות והטובות ביותר",
+     "kind": "graduate",
+     "time": "",
+     "icon": "book",
+     "order": 26
+    }
+   },
+   {
+    "id": "item-27",
+    "slug": "item-27",
+    "status": "published",
+    "data": {
+     "title": "תעודות מצטיינות",
+     "text": "תעודות הבגרות של רוב בוגרי מערבא הינן מהטובות בארץ",
+     "kind": "graduate",
+     "time": "",
+     "icon": "award",
+     "order": 27
+    }
+   },
+   {
+    "id": "item-28",
+    "slug": "item-28",
+    "status": "published",
+    "data": {
+     "title": "הצלחה בכל תחום",
+     "text": "בוגרינו תופסים מקום של כבוד הן בעולם התורה והן בעולם המעשה",
+     "kind": "graduate",
+     "time": "",
+     "icon": "brief",
+     "order": 28
+    }
+   },
+   {
+    "id": "item-29",
+    "slug": "item-29",
+    "status": "published",
+    "data": {
+     "title": "כלל התלמידים לומדים תוכנית המזכה בתעודת בגרות מלאה",
+     "text": "",
+     "kind": "bagrut-point",
+     "time": "",
+     "icon": "",
+     "order": 29
+    }
+   },
+   {
+    "id": "item-30",
+    "slug": "item-30",
+    "status": "published",
+    "data": {
+     "title": "אפשרות להגבר ל-5 יח\"ל במתמטיקה, מחשבים ואנגלית",
+     "text": "",
+     "kind": "bagrut-point",
+     "time": "",
+     "icon": "",
+     "order": 30
+    }
+   },
+   {
+    "id": "item-31",
+    "slug": "item-31",
+    "status": "published",
+    "data": {
+     "title": "מסלול 5 יח\"ל בביולוגיה",
+     "text": "",
+     "kind": "bagrut-point",
+     "time": "",
+     "icon": "",
+     "order": 31
+    }
+   },
+   {
+    "id": "item-32",
+    "slug": "item-32",
+    "status": "published",
+    "data": {
+     "title": "מסלול 5 יח\"ל בפיסיקה",
+     "text": "",
+     "kind": "bagrut-point",
+     "time": "",
+     "icon": "",
+     "order": 32
+    }
+   },
+   {
+    "id": "item-33",
+    "slug": "item-33",
+    "status": "published",
+    "data": {
+     "title": "תכניות לפעילות גופנית בחדר כושר מאובזר עם מדריך מוסמך",
+     "text": "",
+     "kind": "bagrut-point",
+     "time": "",
+     "icon": "",
+     "order": 33
+    }
+   },
+   {
+    "id": "item-34",
+    "slug": "item-34",
+    "status": "published",
+    "data": {
+     "title": "תכנית \"מעורבות חברתית\" של התנדבות ותרומה לקהילה",
+     "text": "",
+     "kind": "bagrut-point",
+     "time": "",
+     "icon": "",
+     "order": 34
+    }
+   },
+   {
+    "id": "item-35",
+    "slug": "item-35",
+    "status": "published",
+    "data": {
+     "title": "בית הכנסת של הישיבה",
+     "text": "",
+     "kind": "gallery",
+     "time": "",
+     "icon": "",
+     "order": 35
+    }
+   },
+   {
+    "id": "item-36",
+    "slug": "item-36",
+    "status": "published",
+    "data": {
+     "title": "לימוד בחברותא",
+     "text": "",
+     "kind": "gallery",
+     "time": "",
+     "icon": "",
+     "order": 36
+    }
+   },
+   {
+    "id": "item-37",
+    "slug": "item-37",
+    "status": "published",
+    "data": {
+     "title": "טיול שנתי",
+     "text": "",
+     "kind": "gallery",
+     "time": "",
+     "icon": "",
+     "order": 37
+    }
+   },
+   {
+    "id": "item-38",
+    "slug": "item-38",
+    "status": "published",
+    "data": {
+     "title": "נגינה בפסנתר",
+     "text": "",
+     "kind": "gallery",
+     "time": "",
+     "icon": "",
+     "order": 38
+    }
+   },
+   {
+    "id": "item-39",
+    "slug": "item-39",
+    "status": "published",
+    "data": {
+     "title": "חצר הישיבה",
+     "text": "",
+     "kind": "gallery",
+     "time": "",
+     "icon": "",
+     "order": 39
+    }
+   }
+  ]
+ }
+}

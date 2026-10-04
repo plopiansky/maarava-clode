@@ -1,0 +1,27 @@
+{
+  "name": "maarava-site",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro build && wrangler dev",
+    "deploy": "astro build && wrangler deploy",
+    "seed": "emdash seed seed/seed.json"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.3.3",
+    "@astrojs/react": "^7.0.0",
+    "@cloudflare/kumo": "^2.6.0",
+    "@emdash-cms/cloudflare": "^1.1.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "astro": "^7.3.5",
+    "better-sqlite3": "^13.0.3",
+    "emdash": "^1.1.0",
+    "kysely": "^0.29.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "wrangler": "^4.147.0"
+  }
+}

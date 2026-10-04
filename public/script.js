@@ -1,4 +1,3 @@
-document.getElementById('yr').textContent = new Date().getFullYear();
 
 const nav = document.getElementById('nav');
 document.getElementById('burger').addEventListener('click', () => nav.classList.toggle('open'));
