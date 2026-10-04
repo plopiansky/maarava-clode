@@ -1,10 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
 import { loadSite, imgOf, paragraphs } from "../lib/content";
-import { REGISTER_URL, PHONE, PHONE_HREF, EMAIL } from "../lib/config";
 
-const { sec, kind } = await loadSite();
-const regUrl = sec.register?.url || REGISTER_URL;
+const { sec, kind, site } = await loadSite();
+const PHONE = site.phone, PHONE_HREF = site.phoneHref, EMAIL = site.email;
+const regUrl = site.registerUrl;
 const reg = { href: regUrl, target: "_blank", rel: "noopener" };
 const hero = sec.hero ?? {};
 const rosh = sec.rosh ?? {};
@@ -31,7 +31,7 @@ const pillarCls = ["c-brain", "c-soul", "c-body"];
 			<div class="hero-logo"><img src="/logo.jpg" alt="מערבא מכון רובין" width="150" height="150" /></div>
 			<h1>{hero.title}</h1>
 			<h2>{hero.subtitle}</h2>
-			<p class="hero-loc"><svg class="ic"><use href="#i-pin" /></svg>מושב מתתיהו</p>
+			<p class="hero-loc"><svg class="ic"><use href="#i-pin" /></svg>{site.location}</p>
 			{hero.body && <div class="badge">{hero.body}</div>}
 			{sec["hero-tagline"]?.body && <p class="hero-tagline">{sec["hero-tagline"].body}</p>}
 			<div class="hero-btns">

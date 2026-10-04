@@ -39,14 +39,25 @@ async function all(collection: string): Promise<any[]> {
 }
 
 export async function loadSite() {
-	const seedSections = (seed as any).content.sections as any[];
-	const [secs, pillars, tracks, schedule, features, graduates, bagrut, values, staff, gallery] = await Promise.all(
-		["sections", "pillars", "tracks", "schedule", "approach_features", "graduates", "bagrut_points", "values", "staff", "gallery"].map(all),
+	const sc = (seed as any).content as Record<string, any[]>;
+	const SECTION_COLLECTIONS = ["home_sections", "about_sections", "staff_sections", "gallery_sections"];
+	const seedSections = SECTION_COLLECTIONS.flatMap((k) => sc[k] ?? []);
+	const [homeSecs, aboutSecs, staffSecs, galSecs, general, pillars, tracks, schedule, features, graduates, bagrut, values, staff, gallery] = await Promise.all(
+		["home_sections", "about_sections", "staff_sections", "gallery_sections", "general", "pillars", "tracks", "schedule", "approach_features", "graduates", "bagrut_points", "values", "staff", "gallery"].map(all),
 	);
 	// Section defaults come from the seed so a page never renders empty; anything saved in the CMS wins.
 	const sec: Record<string, any> = {};
 	for (const e of seedSections) sec[e.slug] = e.data;
-	for (const e of secs) sec[e._slug] = e;
+	for (const e of [...homeSecs, ...aboutSecs, ...staffSecs, ...galSecs]) sec[e._slug] = e;
+	const g = general.find((e) => e._slug === "settings") ?? {};
+	const d = sc.general[0].data;
+	const site = {
+		registerUrl: g.register_url || d.register_url,
+		phone: g.phone || d.phone,
+		email: g.email || d.email,
+		location: g.location || d.location,
+		phoneHref: "tel:" + String(g.phone || d.phone).replace(/[^0-9+]/g, ""),
+	};
 	const lists: Record<string, any[]> = {
 		pillar: pillars,
 		track: tracks,
@@ -62,5 +73,5 @@ export async function loadSite() {
 		gallery,
 	};
 	const kind = (k: string) => lists[k] ?? [];
-	return { sec, kind };
+	return { sec, kind, site };
 }

@@ -1,9 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 import { loadSite, imgOf } from "../lib/content";
-import { PHONE, PHONE_HREF, EMAIL } from "../lib/config";
 
-const { sec, kind } = await loadSite();
+const { sec, kind, site } = await loadSite();
+const PHONE = site.phone, PHONE_HREF = site.phoneHref, EMAIL = site.email;
 const hero = sec["staff-hero"] ?? {};
 const mgmt = sec["staff-management"] ?? {};
 const rabbis = sec["staff-rabbis"] ?? {};

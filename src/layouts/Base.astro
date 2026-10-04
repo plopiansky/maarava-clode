@@ -1,13 +1,13 @@
 ---
 import Icons from "../components/Icons.astro";
 import { loadSite } from "../lib/content";
-import { REGISTER_URL, PHONE, PHONE_HREF, EMAIL } from "../lib/config";
 import "../styles/global.css";
 
 interface Props { active?: "home" | "about" | "staff" | "gallery"; title?: string }
 const { active = "home", title = "ישיבת מערבא – מכון רובין" } = Astro.props;
-const { sec } = await loadSite();
-const regUrl = sec.register?.url || REGISTER_URL;
+const { site } = await loadSite();
+const PHONE = site.phone, PHONE_HREF = site.phoneHref, EMAIL = site.email;
+const regUrl = site.registerUrl;
 const reg = { href: regUrl, target: "_blank", rel: "noopener" };
 ---
 <!doctype html>
@@ -29,7 +29,7 @@ const reg = { href: regUrl, target: "_blank", rel: "noopener" };
 			<a href={PHONE_HREF}><svg class="ic"><use href="#i-phone" /></svg><span dir="ltr">{PHONE}</span></a>
 			<a href={`mailto:${EMAIL}`}><svg class="ic"><use href="#i-mail" /></svg><span dir="ltr">{EMAIL}</span></a>
 		</div>
-		<div class="topbar-loc"><svg class="ic"><use href="#i-pin" /></svg>מושב מתתיהו</div>
+		<div class="topbar-loc"><svg class="ic"><use href="#i-pin" /></svg>{site.location}</div>
 	</div>
 </div>
 

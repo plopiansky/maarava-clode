@@ -5,15 +5,15 @@
 
 import type { BylineSummary, ContentBylineCredit, TaxonomyTerm } from "emdash";
 
-export interface Section {
+export interface HomeSection {
   id: string;
   slug: string | null;
   status: string;
-  title: string;
+  label: string;
+  title?: string;
   subtitle?: string;
   body?: string;
   image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
-  url?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
@@ -117,6 +117,23 @@ export interface BagrutPoint {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
+export interface AboutSection {
+  id: string;
+  slug: string | null;
+  status: string;
+  label: string;
+  title?: string;
+  subtitle?: string;
+  body?: string;
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 export interface Value {
   id: string;
   slug: string | null;
@@ -133,15 +150,15 @@ export interface Value {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
-export interface Gallery {
+export interface StaffSection {
   id: string;
   slug: string | null;
   status: string;
-  title: string;
+  label: string;
+  title?: string;
+  subtitle?: string;
+  body?: string;
   image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
-  text?: string;
-  featured?: boolean;
-  order?: number;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
@@ -167,17 +184,72 @@ export interface Staff {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
+export interface GallerySection {
+  id: string;
+  slug: string | null;
+  status: string;
+  label: string;
+  title?: string;
+  subtitle?: string;
+  body?: string;
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface Gallery {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  text?: string;
+  featured?: boolean;
+  order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
+export interface General {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  register_url?: string;
+  phone?: string;
+  email?: string;
+  location?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 declare module "emdash" {
   interface EmDashCollections {
-    sections: Section;
+    home_sections: HomeSection;
     pillars: Pillar;
     tracks: Track;
     schedule: Schedule;
     approach_features: ApproachFeature;
     graduates: Graduate;
     bagrut_points: BagrutPoint;
+    about_sections: AboutSection;
     values: Value;
-    gallery: Gallery;
+    staff_sections: StaffSection;
     staff: Staff;
+    gallery_sections: GallerySection;
+    gallery: Gallery;
+    general: General;
   }
 }
