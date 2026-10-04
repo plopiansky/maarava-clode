@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSite, imgOf, paragraphs } from "../lib/content";
+
+const { sec, kind } = await loadSite();
+const hero = sec["about-hero"] ?? {};
+const story = sec["about-story"] ?? {};
+const values = sec["about-values"] ?? {};
+const curr = sec["about-curriculum"] ?? {};
+const loc = sec["about-location"] ?? {};
+const storyImg = imgOf(story.image);
+const currImg = imgOf(curr.image);
+---
+<Base active="about" title="אודות – ישיבת מערבא">
+<main>
+	<section class="page-hero">
+		<div class="container">
+			<h1>{hero.title}</h1>
+			<p>{hero.subtitle}</p>
+		</div>
+	</section>
+
+	<section class="story">
+		<div class="container story-card reveal">
+			<div class="story-text">
+				<h2>{story.title}</h2>
+				{paragraphs(story.body).map((p) => <p set:html={p} />)}
+			</div>
+			<div class="story-img">
+				{storyImg ? <img src={storyImg.src} alt={storyImg.alt || story.title} /> : <div class="story-ph"></div>}
+			</div>
+		</div>
+	</section>
+
+	<section class="values">
+		<div class="container">
+			<h2 class="sec-title reveal">{values.title}</h2>
+			<p class="sec-sub reveal">{values.subtitle}</p>
+			<div class="val-grid">
+				{kind("value").map((v: any) => (
+					<article class="val reveal">
+						<div class="grad-ic"><svg><use href={`#i-${v.icon || "heart"}`} /></svg></div>
+						<h3>{v.title}</h3><p>{v.text}</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="curr">
+		<div class="container curr-card reveal" style={currImg ? `background-image:linear-gradient(rgba(110,25,55,.88),rgba(90,20,48,.92)),url(${currImg.src})` : undefined}>
+			<h2>{curr.title}</h2>
+			{paragraphs(curr.body).map((p) => <p set:html={p} />)}
+		</div>
+	</section>
+
+	<section class="where">
+		<div class="container center reveal">
+			<h2 class="sec-title">{loc.title}</h2>
+			<p class="where-text">{loc.body}</p>
+			<p class="where-addr"><svg class="ic"><use href="#i-pin" /></svg>{loc.subtitle}</p>
+		</div>
+	</section>
+</main>
+</Base>

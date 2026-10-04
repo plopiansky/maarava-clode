@@ -11,7 +11,7 @@ export interface Item {
   status: string;
   title: string;
   text?: string;
-  kind: "pillar" | "track" | "schedule-morning" | "schedule-noon" | "schedule-evening" | "approach-feature" | "graduate" | "bagrut-point" | "gallery";
+  kind: "pillar" | "track" | "schedule-morning" | "schedule-noon" | "schedule-evening" | "approach-feature" | "graduate" | "bagrut-point" | "gallery" | "value";
   time?: string;
   icon?: string;
   order?: number;
@@ -32,6 +32,7 @@ export interface Section {
   subtitle?: string;
   body?: string;
   image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  url?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
