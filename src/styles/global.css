@@ -315,3 +315,7 @@ a.g{display:block}
 .lb-close{top:20px;inset-inline-end:20px}
 .lb-next{left:20px;top:50%;transform:translateY(-50%)}
 .lb-prev{right:20px;top:50%;transform:translateY(-50%)}
+
+.credit{text-align:center;padding:0 16px 22px;font-size:14px;color:#c9aab4}
+.credit a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.credit a:hover{color:#fff}
