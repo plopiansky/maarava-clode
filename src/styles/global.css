@@ -3,11 +3,11 @@
   --ink:#2b2226; --muted:#6b5f64; --r:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:110px}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
 body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.container{width:min(1200px,100% - 48px);margin-inline:auto}
+.container{width:min(1400px,100% - 48px);margin-inline:auto}
 .ic{width:20px;height:20px;flex:none}
 .gold{color:var(--gold)}
 .muted{color:var(--muted)}
@@ -321,3 +321,13 @@ a.g{display:block}
 .credit a:hover{color:#fff}
 
 .foot-about{color:#e8dde1;font-size:17px;text-align:center;max-width:640px}
+
+/* floating registration button (replaces the header bar) */
+.float-reg{position:fixed;z-index:60;left:24px;bottom:24px;background:var(--maroon);color:#fff;font-weight:800;font-size:19px;padding:15px 34px;border-radius:999px;box-shadow:0 10px 28px rgba(60,10,30,.45);border:2px solid rgba(255,255,255,.25);transition:transform .2s,background .2s}
+.float-reg:hover{background:var(--maroon-d);transform:translateY(-3px)}
+.back-link{display:inline-block;margin-bottom:22px;color:#f0e3e8;font-size:18px;opacity:.9}
+.back-link:hover{opacity:1;text-decoration:underline}
+.page-hero{padding-top:80px}
+/* slightly smaller overall scale on desktop */
+@media (min-width:981px){body{zoom:.85}}
+@media (max-width:520px){.float-reg{left:14px;bottom:14px;font-size:17px;padding:13px 26px}}

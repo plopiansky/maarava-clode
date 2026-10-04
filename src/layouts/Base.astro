@@ -69,23 +69,7 @@ const reg = { href: regUrl, target: "_blank", rel: "noopener" };
 	</div>
 </div>
 
-<header class="header">
-	<div class="container header-in">
-		<a href="/" class="brand">
-			<img src="/logo.jpg" alt="לוגו מערבא" class="brand-logo" />
-			<span class="brand-text"><strong>ישיבת מערבא</strong><small>מכון רובין</small></span>
-		</a>
-		<nav class="nav" id="nav">
-			<a href="/" class={active === "home" ? "active" : ""}>ראשי</a>
-			<a href="/about" class={active === "about" ? "active" : ""}>אודות</a>
-			<a href="/staff" class={active === "staff" ? "active" : ""}>צוות</a>
-			<a {...reg}>הרשמה</a>
-			<a href="#contact">צור קשר</a>
-		</nav>
-		<a {...reg} class="btn btn-maroon header-cta">הרשמה לישיבה</a>
-		<button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
-	</div>
-</header>
+<a {...reg} class="float-reg" aria-label="הרשמה לישיבה">הרשמה לישיבה</a>
 
 
 <slot />
