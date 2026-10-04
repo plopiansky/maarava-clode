@@ -19,10 +19,11 @@ npm run dev          # http://localhost:4321
 - כתובת כפתורי "הרשמה לישיבה": `src/lib/config.ts` (`REGISTER_URL`).
 
 ## פריסה ל-Cloudflare
-```bash
-npx wrangler login
-npx wrangler d1 create maarava-db        # העתיקו את ה-database_id ל-wrangler.jsonc
-npx wrangler r2 bucket create maarava-media
-npm run deploy
-```
-לאחר הפריסה: להגדיר משתנה `EMDASH_SITE_URL` לכתובת האתר, ולפתוח `/_emdash/admin` ליצירת מנהל (passkey).
+ה-D1 (`marava`) וה-R2 (`maarava`) כבר מוגדרים ב-`wrangler.jsonc`.
+
+חיבור הריפו ב-Workers Builds: Build command `npm run build`, Deploy command `npx wrangler deploy`.
+(או מקומית: `npm run deploy`.)
+
+אחרי הפריסה הראשונה:
+1. להגדיר משתנה `EMDASH_SITE_URL` (Settings → Variables) לכתובת האתר.
+2. לפתוח `https://<האתר>/_emdash/admin`, להשלים את אשף ההתקנה (כולל "טען תוכן לדוגמה") וליצור מנהל.

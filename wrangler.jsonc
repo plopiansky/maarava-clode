@@ -7,9 +7,9 @@
   "assets": { "binding": "ASSETS", "directory": "./dist/client" },
   "observability": { "enabled": true },
   "d1_databases": [
-    { "binding": "DB", "database_name": "maarava-db", "database_id": "REPLACE_WITH_D1_DATABASE_ID" }
+    { "binding": "DB", "database_name": "marava", "database_id": "8a1bee78-0f11-49e9-80b5-e38cb3f66c85" }
   ],
   "r2_buckets": [
-    { "binding": "MEDIA", "bucket_name": "maarava-media" }
+    { "binding": "MEDIA", "bucket_name": "maarava" }
   ]
 }
