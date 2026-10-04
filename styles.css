@@ -111,18 +111,6 @@ blockquote{background:#fff;border-radius:16px;border-inline-end:5px solid var(--
 .track h3{font-size:34px;font-weight:800;margin-bottom:12px}
 .track p{font-size:21px;line-height:1.85;color:#f1ebe8}
 
-/* register */
-.register{background:linear-gradient(160deg,var(--maroon),var(--maroon-d));color:#fff;padding:90px 0}
-.reg-in{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
-.reg-text h2{font-size:clamp(34px,4.5vw,52px);font-weight:900;margin-bottom:14px}
-.reg-text p{font-size:22px;color:#ecd9df}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:#fff;color:var(--ink);padding:32px;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.form label{display:flex;flex-direction:column;gap:6px;font-weight:500}
-.form .full{grid-column:1/-1}
-.form input,.form textarea{font:inherit;padding:12px 14px;border:1.5px solid #ddd0d5;border-radius:12px;background:#fdfafb}
-.form input:focus,.form textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
-.form-msg{min-height:1.5em;text-align:center;font-weight:700;color:var(--maroon)}
-
 /* footer */
 .footer{background:#2a1520;color:#e8dde1;padding-top:50px}
 .foot-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:30px}
@@ -147,13 +135,12 @@ blockquote{background:#fff;border-radius:16px;border-inline-end:5px solid var(--
   .nav a{padding:12px 0;border-bottom:1px solid #eee}
   .burger{display:flex}
   .header-cta{display:none}
-  .rosh-in,.reg-in{grid-template-columns:1fr;gap:40px}
+  .rosh-in{grid-template-columns:1fr;gap:40px}
   .rosh-photo{order:0}
   .trio,.tracks-grid{grid-template-columns:1fr;gap:28px}
   .trio-card{min-height:0}
   .track{min-height:480px}
   .card-text{padding:26px 22px;font-size:18px}
-  .form{grid-template-columns:1fr}
 }
 @media (max-width:520px){
   .container{width:calc(100% - 32px)}

@@ -24,15 +24,3 @@ if ('IntersectionObserver' in window) {
   }), { rootMargin: '-40% 0px -55% 0px' });
   document.querySelectorAll('main section[id], footer[id]').forEach(s => so.observe(s));
 }
-
-// registration form (front-end only)
-document.getElementById('regForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const f = e.target, msg = document.getElementById('formMsg');
-  if (!f.name.value.trim() || !f.parent.value.trim() || !f.phone.value.trim()) {
-    msg.textContent = 'נא למלא שם תלמיד, שם הורה וטלפון';
-    return;
-  }
-  msg.textContent = 'תודה! הפרטים התקבלו, נחזור אליכם בהקדם.';
-  f.reset();
-});
