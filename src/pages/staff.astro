@@ -11,7 +11,7 @@ const cta = sec["staff-cta"] ?? {};
 // The head of the yeshiva (first management entry) defaults to the same photo as the home page until one is uploaded.
 const person = (p: any) => ({ ...p, img: imgOf(p.image) ?? (p._slug === "staff-1" ? { src: "/rosh.jpg" } : null) });
 ---
-<Base active="staff" title="צוות הישיבה – רבני ומחנכי ישיבת מערבא מכון רובין" description="הנהלת ישיבת מערבא ורבני הישיבה: ר&quot;מים ומחנכים מהשורה הראשונה, המלווים את התלמידים בדרך התורה, במידות ובהכנה לחיים.">
+<Base active="staff" title="צוות הישיבה | ישיבת מערבא" description="הנהלת ישיבת מערבא ורבני הישיבה: ר&quot;מים ומחנכים מהשורה הראשונה, המלווים את התלמידים בדרך התורה, במידות ובהכנה לחיים.">
 <main>
 	<section class="page-hero">
 		<div class="container">

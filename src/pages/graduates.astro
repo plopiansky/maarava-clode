@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSite } from "../lib/content";
+
+const { sec, kind } = await loadSite();
+const g = sec.graduates ?? {};
+const bagrut = sec.bagrut ?? {};
+---
+<Base active="graduates" title="בוגרינו | ישיבת מערבא" description="בוגרי ישיבת מערבא: אחוז זכאות גבוה לבגרות, המשך לישיבות הגדולות ותעודות מצטיינות. מסלולי בגרות במתמטיקה, אנגלית, ביולוגיה ופיסיקה.">
+<main>
+	<section class="page-hero">
+		<div class="container">
+			<a href="/" class="back-link">→ חזרה לדף הראשי</a>
+			<h1>{g.title}</h1>
+			<p>{g.subtitle}</p>
+		</div>
+	</section>
+
+	<section class="grads grads-page">
+		<div class="container">
+			<div class="grad-grid">
+				{kind("graduate").map((x: any) => (
+					<article class="grad reveal">
+						<div class="grad-ic"><svg><use href={`#i-${x.icon || "award"}`} /></svg></div>
+						<h3>{x.title}</h3><p>{x.text}</p>
+					</article>
+				))}
+			</div>
+			<div class="bagrut reveal">
+				<h3>{bagrut.title}</h3>
+				<ul>{kind("bagrut-point").map((b: any) => <li>{b.title}</li>)}</ul>
+			</div>
+		</div>
+	</section>
+</main>
+</Base>

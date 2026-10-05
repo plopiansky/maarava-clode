@@ -6,7 +6,9 @@ const PAGES = [
 	{ path: "/", priority: "1.0" },
 	{ path: "/about", priority: "0.8" },
 	{ path: "/staff", priority: "0.7" },
+	{ path: "/graduates", priority: "0.7" },
 	{ path: "/gallery", priority: "0.6" },
+	{ path: "/contact", priority: "0.8" },
 ];
 
 export const GET: APIRoute = ({ url }) => {

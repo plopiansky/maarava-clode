@@ -609,7 +609,7 @@
    "supports": [
     "drafts"
    ],
-   "group": "5. הגדרות כלליות",
+   "group": "6. הגדרות כלליות",
    "sortOrder": 14,
    "titleField": "title",
    "fields": [
@@ -638,6 +638,41 @@
      "slug": "location",
      "label": "מיקום",
      "type": "string"
+    }
+   ]
+  },
+  {
+   "slug": "contact_sections",
+   "label": "דף צור קשר – כותרות וטקסט",
+   "labelSingular": "אזור",
+   "description": "כותרות וטקסט של עמוד צור קשר. הטלפון, המייל והמיקום נערכים ב'הגדרות כלליות'.",
+   "supports": [
+    "drafts"
+   ],
+   "group": "5. דף צור קשר",
+   "sortOrder": 13.5,
+   "titleField": "label",
+   "fields": [
+    {
+     "slug": "label",
+     "label": "שם האזור (לזיהוי בניהול בלבד)",
+     "type": "string",
+     "required": true
+    },
+    {
+     "slug": "title",
+     "label": "כותרת",
+     "type": "string"
+    },
+    {
+     "slug": "subtitle",
+     "label": "כותרת משנה",
+     "type": "string"
+    },
+    {
+     "slug": "body",
+     "label": "טקסט",
+     "type": "text"
     }
    ]
   }
@@ -1421,6 +1456,30 @@
      "phone": "08-976-1266",
      "email": "office@maarava.com",
      "location": "מושב מתתיהו"
+    }
+   }
+  ],
+  "contact_sections": [
+   {
+    "id": "contact-hero",
+    "slug": "contact-hero",
+    "status": "published",
+    "data": {
+     "label": "צור קשר – כותרת עליונה",
+     "title": "צור קשר",
+     "subtitle": "נשמח לענות על כל שאלה ולקבוע ביקור בישיבה",
+     "body": ""
+    }
+   },
+   {
+    "id": "contact-body",
+    "slug": "contact-body",
+    "status": "published",
+    "data": {
+     "label": "צור קשר – טקסט",
+     "title": "דרכי התקשרות",
+     "subtitle": "",
+     "body": "אפשר להתקשר, לשלוח מייל או להגיע לביקור בישיבה, להכיר את הצוות ולהתרשם מהאווירה."
     }
    }
   ]

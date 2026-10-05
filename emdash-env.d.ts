@@ -218,6 +218,22 @@ export interface Gallery {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
+export interface ContactSection {
+  id: string;
+  slug: string | null;
+  status: string;
+  label: string;
+  title?: string;
+  subtitle?: string;
+  body?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 export interface General {
   id: string;
   slug: string | null;
@@ -250,6 +266,7 @@ declare module "emdash" {
     staff: Staff;
     gallery_sections: GallerySection;
     gallery: Gallery;
+    contact_sections: ContactSection;
     general: General;
   }
 }

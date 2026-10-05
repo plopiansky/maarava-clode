@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSite } from "../lib/content";
+
+const { sec, site } = await loadSite();
+const hero = sec["contact-hero"] ?? {};
+const body = sec["contact-body"] ?? {};
+const addr = sec["about-location"]?.subtitle;
+const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("ישיבת מערבא מכון רובין מתתיהו");
+const wazeUrl = "https://waze.com/ul?q=" + encodeURIComponent("ישיבת מערבא מתתיהו") + "&navigate=yes";
+---
+<Base active="contact" title="צור קשר | ישיבת מערבא" description="צור קשר עם ישיבת מערבא מכון רובין: טלפון, מייל וכתובת בישיבה ליד מושב מתתיהו. נשמח לקבוע ביקור.">
+<main>
+	<section class="page-hero">
+		<div class="container">
+			<a href="/" class="back-link">→ חזרה לדף הראשי</a>
+			<h1>{hero.title}</h1>
+			<p>{hero.subtitle}</p>
+		</div>
+	</section>
+
+	<section class="contact-sec">
+		<div class="container">
+			<h2 class="sec-title reveal">{body.title}</h2>
+			<p class="sec-sub reveal">{body.body}</p>
+			<div class="contact-grid">
+				<a class="c-card reveal" href={site.phoneHref}>
+					<span class="c-ic"><svg><use href="#i-phone" /></svg></span>
+					<h3>טלפון</h3>
+					<p dir="ltr">{site.phone}</p>
+				</a>
+				<a class="c-card reveal" href={`mailto:${site.email}`}>
+					<span class="c-ic"><svg><use href="#i-mail" /></svg></span>
+					<h3>דוא"ל</h3>
+					<p dir="ltr">{site.email}</p>
+				</a>
+				<div class="c-card reveal">
+					<span class="c-ic"><svg><use href="#i-pin" /></svg></span>
+					<h3>כתובת</h3>
+					<p>{site.location}</p>
+					{addr && <p class="c-addr">{addr}</p>}
+					<p class="c-links"><a href={mapUrl} target="_blank" rel="noopener">מפות Google</a> · <a href={wazeUrl} target="_blank" rel="noopener">Waze</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+</Base>

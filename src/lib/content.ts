@@ -40,15 +40,15 @@ async function all(collection: string): Promise<any[]> {
 
 export async function loadSite() {
 	const sc = (seed as any).content as Record<string, any[]>;
-	const SECTION_COLLECTIONS = ["home_sections", "about_sections", "staff_sections", "gallery_sections"];
+	const SECTION_COLLECTIONS = ["home_sections", "about_sections", "staff_sections", "gallery_sections", "contact_sections"];
 	const seedSections = SECTION_COLLECTIONS.flatMap((k) => sc[k] ?? []);
-	const [homeSecs, aboutSecs, staffSecs, galSecs, general, pillars, tracks, schedule, features, graduates, bagrut, values, staff, gallery] = await Promise.all(
-		["home_sections", "about_sections", "staff_sections", "gallery_sections", "general", "pillars", "tracks", "schedule", "approach_features", "graduates", "bagrut_points", "values", "staff", "gallery"].map(all),
+	const [homeSecs, aboutSecs, staffSecs, galSecs, contactSecs, general, pillars, tracks, schedule, features, graduates, bagrut, values, staff, gallery] = await Promise.all(
+		["home_sections", "about_sections", "staff_sections", "gallery_sections", "contact_sections", "general", "pillars", "tracks", "schedule", "approach_features", "graduates", "bagrut_points", "values", "staff", "gallery"].map(all),
 	);
 	// Section defaults come from the seed so a page never renders empty; anything saved in the CMS wins.
 	const sec: Record<string, any> = {};
 	for (const e of seedSections) sec[e.slug] = e.data;
-	for (const e of [...homeSecs, ...aboutSecs, ...staffSecs, ...galSecs]) sec[e._slug] = e;
+	for (const e of [...homeSecs, ...aboutSecs, ...staffSecs, ...galSecs, ...contactSecs]) sec[e._slug] = e;
 	const g = general.find((e) => e._slug === "settings") ?? {};
 	const d = sc.general[0].data;
 	const site = {
