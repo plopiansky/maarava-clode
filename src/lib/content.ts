@@ -56,6 +56,7 @@ export async function loadSite() {
 		phone: g.phone || d.phone,
 		email: g.email || d.email,
 		location: g.location || d.location,
+		legalEmail: g.legal_email || d.legal_email || "plopiansky@gmail.com",
 		phoneHref: "tel:" + String(g.phone || d.phone).replace(/[^0-9+]/g, ""),
 	};
 	const lists: Record<string, any[]> = {

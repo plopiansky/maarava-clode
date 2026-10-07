@@ -3,7 +3,7 @@ import Icons from "../components/Icons.astro";
 import { loadSite } from "../lib/content";
 import "../styles/global.css";
 
-interface Props { active?: "home" | "about" | "staff" | "gallery" | "graduates" | "contact"; title?: string; description?: string; image?: string }
+interface Props { active?: "home" | "about" | "staff" | "gallery" | "graduates" | "contact" | "legal"; title?: string; description?: string; image?: string }
 const {
 	active = "home",
 	title = "ישיבת מערבא – ישיבה תיכונית במושב מתתיהו | מכון רובין",
@@ -127,6 +127,7 @@ const jsonLd = {
 			<a href={PHONE_HREF}><svg class="ic"><use href="#i-phone" /></svg><span dir="ltr">{PHONE}</span></a>
 		</div>
 	</div>
+	<div class="legal-links"><a href="/accessibility">הצהרת נגישות</a><a href="/privacy">מדיניות פרטיות</a></div>
 	<div class="copy">© {new Date().getFullYear()} ישיבת מערבא - מכון רובין | מושב מתתיהו</div>
 <div class="credit" data-nosnippet>אתר זה נבנה על ידי <a href="https://rabenu8200.com" target="_blank" rel="noopener">בית רבנו 8200</a></div>
 </footer>

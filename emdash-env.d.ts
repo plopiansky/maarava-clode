@@ -243,6 +243,7 @@ export interface General {
   phone?: string;
   email?: string;
   location?: string;
+  legal_email?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;

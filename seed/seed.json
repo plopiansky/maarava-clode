@@ -638,6 +638,11 @@
      "slug": "location",
      "label": "מיקום",
      "type": "string"
+    },
+    {
+     "slug": "legal_email",
+     "label": "מייל לפניות נגישות ופרטיות",
+     "type": "string"
     }
    ]
   },
@@ -1455,7 +1460,8 @@
      "register_url": "https://yeshivat-maarava.base44.app/",
      "phone": "08-976-1266",
      "email": "office@maarava.com",
-     "location": "מושב מתתיהו"
+     "location": "מושב מתתיהו",
+     "legal_email": "plopiansky@gmail.com"
     }
    }
   ],

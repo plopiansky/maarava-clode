@@ -347,3 +347,16 @@ a.c-card:hover{transform:translateY(-4px)}
 .grads-page{padding-top:70px}
 .foot-nav a.active{background:#8a2a4a;border-color:var(--gold)}
 @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
+
+/* legal pages + footer links */
+.legal{padding:70px 0 90px;background:#fcf8f4}
+.legal-in{max-width:900px;font-size:19px;line-height:1.95}
+.legal-in h2{font-size:28px;font-weight:800;color:var(--maroon);margin:36px 0 10px}
+.legal-in h2:first-child{margin-top:0}
+.legal-in ul{padding-inline-start:26px;margin:10px 0}
+.legal-in li{margin:8px 0}
+.legal-in a{color:var(--maroon);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.legal-date{margin-top:36px;color:var(--muted);font-size:16px}
+.legal-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding:6px 16px 4px;font-size:15px}
+.legal-links a{color:#e8dde1;text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.legal-links a:hover{opacity:1;color:#fff}
