@@ -56,6 +56,10 @@ export async function loadSite() {
 		phone: g.phone || d.phone,
 		email: g.email || d.email,
 		location: g.location || d.location,
+		notice: {
+			enabled: Boolean(g.notice_enabled ?? d.notice_enabled),
+			text: (g.notice_text || d.notice_text) as string,
+		},
 		legalEmail: g.legal_email || d.legal_email || "plopiansky@gmail.com",
 		phoneHref: "tel:" + String(g.phone || d.phone).replace(/[^0-9+]/g, ""),
 	};

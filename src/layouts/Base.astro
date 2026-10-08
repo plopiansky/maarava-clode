@@ -131,6 +131,16 @@ const jsonLd = {
 	<div class="copy">© {new Date().getFullYear()} ישיבת מערבא - מכון רובין | מושב מתתיהו</div>
 <div class="credit" data-nosnippet>אתר זה נבנה על ידי <a href="https://rabenu8200.com" target="_blank" rel="noopener">בית רבנו 8200</a></div>
 </footer>
+{site.notice.enabled && site.notice.text && (
+	<div class="notice" id="notice" role="dialog" aria-modal="true" aria-labelledby="notice-title" hidden data-nosnippet>
+		<div class="notice-box">
+			<div class="notice-ic" aria-hidden="true">🚧</div>
+			<h2 id="notice-title">האתר בבנייה</h2>
+			<p>{site.notice.text}</p>
+			<button type="button" class="btn btn-maroon" id="notice-ok">הבנתי, המשך לאתר</button>
+		</div>
+	</div>
+)}
 <Icons />
 <script is:inline src="/script.js"></script>
 </body>

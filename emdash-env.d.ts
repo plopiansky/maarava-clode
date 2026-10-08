@@ -244,6 +244,8 @@ export interface General {
   email?: string;
   location?: string;
   legal_email?: string;
+  notice_enabled?: boolean;
+  notice_text?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;

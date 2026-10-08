@@ -643,6 +643,17 @@
      "slug": "legal_email",
      "label": "מייל לפניות נגישות ופרטיות",
      "type": "string"
+    },
+    {
+     "slug": "notice_enabled",
+     "label": "להציג הודעה קופצת בכניסה לאתר",
+     "type": "boolean",
+     "defaultValue": true
+    },
+    {
+     "slug": "notice_text",
+     "label": "טקסט ההודעה הקופצת",
+     "type": "text"
     }
    ]
   },
@@ -1461,7 +1472,9 @@
      "phone": "08-976-1266",
      "email": "office@maarava.com",
      "location": "מושב מתתיהו",
-     "legal_email": "plopiansky@gmail.com"
+     "legal_email": "plopiansky@gmail.com",
+     "notice_enabled": true,
+     "notice_text": "שימו לב: האתר נמצא כעת בבנייה, ולכן לא בהכרח שכל חלקיו יעבדו כראוי. אנו עובדים על השלמתו ומתנצלים על אי הנוחות."
     }
    }
   ],
