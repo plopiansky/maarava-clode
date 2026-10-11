@@ -3,7 +3,7 @@ import Icons from "../components/Icons.astro";
 import { loadSite } from "../lib/content";
 import "../styles/global.css";
 
-interface Props { active?: "home" | "about" | "staff" | "gallery" | "graduates" | "contact" | "legal"; title?: string; description?: string; image?: string }
+interface Props { active?: "home" | "about" | "staff" | "gallery" | "graduates" | "contact" | "legal" | "registration"; title?: string; description?: string; image?: string }
 const {
 	active = "home",
 	title = "ישיבת מערבא – ישיבה תיכונית במושב מתתיהו | מכון רובין",
@@ -16,7 +16,7 @@ const imageUrl = image.startsWith("http") ? image : origin + image;
 const { site } = await loadSite();
 const PHONE = site.phone, PHONE_HREF = site.phoneHref, EMAIL = site.email;
 const regUrl = site.registerUrl;
-const reg = { href: regUrl, target: "_blank", rel: "noopener" };
+const reg = { href: "/registration" };
 const NAV = [
 	{ name: "ראשי", path: "/" },
 	{ name: "אודות", path: "/about" },

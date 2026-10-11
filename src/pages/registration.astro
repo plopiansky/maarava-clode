@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSite, richBlocks } from "../lib/content";
+
+const { sec, site } = await loadSite();
+const hero = sec["registration-hero"] ?? {};
+const terms = sec["registration-terms"] ?? {};
+const confirm = sec["registration-confirm"] ?? {};
+---
+<Base active="registration" title="הרשמה לישיבה | ישיבת מערבא" description="הרשמה לישיבת מערבא מכון רובין: תקנון ותהליך הרישום – מפגש היכרות, בחינה פסיכוטכנית, בחינות מערבא וראיון אישי. לאחר קריאת התקנון ממשיכים לטופס הרישום.">
+<main>
+	<section class="page-hero">
+		<div class="container">
+			<a href="/" class="back-link">→ חזרה לדף הראשי</a>
+			<h1>{hero.title}</h1>
+			<p>{hero.subtitle}</p>
+		</div>
+	</section>
+
+	<section class="reg-sec">
+		<div class="container reg-wrap">
+			<article class="terms-card reveal">
+				<h2>{terms.title}</h2>
+				<div class="terms-body" tabindex="0" aria-label={terms.title}>
+					{richBlocks(terms.body).map((p) => <p set:html={p} />)}
+				</div>
+				<p class="terms-dl"><a href="/registration-terms.pdf" target="_blank" rel="noopener" download>הורדת המסמך (PDF)</a></p>
+			</article>
+
+			<div class="confirm-card reveal">
+				<label class="confirm-check">
+					<input type="checkbox" id="terms-ok" />
+					<span>{confirm.title}</span>
+				</label>
+				<a id="reg-go" class="btn btn-maroon reg-go disabled" href={site.registerUrl} target="_blank" rel="noopener" aria-disabled="true">{confirm.subtitle}</a>
+				<p class="confirm-hint" id="reg-hint">{confirm.body}</p>
+				<noscript><p class="confirm-hint">לא ניתן לבדוק את האישור ללא JavaScript. <a href={site.registerUrl} target="_blank" rel="noopener">המשך לטופס הרישום</a>, לאחר קריאת התקנון.</p></noscript>
+			</div>
+		</div>
+	</section>
+</main>
+<script is:inline src="/registration.js"></script>
+</Base>

@@ -5,7 +5,7 @@ import { loadSite, imgOf, paragraphs } from "../lib/content";
 const { sec, kind, site } = await loadSite();
 const PHONE = site.phone, PHONE_HREF = site.phoneHref, EMAIL = site.email;
 const regUrl = site.registerUrl;
-const reg = { href: regUrl, target: "_blank", rel: "noopener" };
+const reg = { href: "/registration" };
 const hero = sec.hero ?? {};
 const rosh = sec.rosh ?? {};
 const vision = sec.vision ?? {};

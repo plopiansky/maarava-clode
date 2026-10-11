@@ -370,3 +370,22 @@ a.c-card:hover{transform:translateY(-4px)}
 .notice-box p{font-size:20px;line-height:1.7;margin-bottom:24px}
 @keyframes nfade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.notice{animation:none}}
+
+/* registration page */
+.reg-sec{padding:70px 0 100px;background:#fcf8f4}
+.reg-wrap{max-width:900px}
+.terms-card{background:#fff;border-radius:22px;border-inline-end:5px solid var(--gold);padding:36px 40px;box-shadow:0 12px 30px rgba(0,0,0,.1)}
+.terms-card h2{font-size:30px;font-weight:800;color:var(--maroon);margin-bottom:14px}
+.terms-body{max-height:560px;overflow:auto;padding-inline-end:12px;font-size:19px;line-height:1.9}
+.terms-body:focus{outline:2px solid var(--gold);outline-offset:4px;border-radius:8px}
+.terms-body p{margin-bottom:16px}
+.terms-dl{margin-top:14px;font-size:17px}
+.terms-dl a{color:var(--maroon);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.confirm-card{margin-top:28px;background:#fff;border-radius:22px;padding:30px 36px;box-shadow:0 12px 30px rgba(0,0,0,.1);text-align:center}
+.confirm-check{display:flex;gap:14px;align-items:flex-start;justify-content:center;text-align:start;font-size:21px;font-weight:700;cursor:pointer;margin-bottom:22px}
+.confirm-check input{width:26px;height:26px;margin-top:4px;flex:none;accent-color:var(--maroon);cursor:pointer}
+.reg-go{font-size:22px;padding:16px 56px}
+.reg-go.disabled{background:#c9bcc1;border-color:#c9bcc1;color:#fff;cursor:not-allowed;pointer-events:auto}
+.reg-go.disabled:hover{background:#c9bcc1}
+.confirm-hint{margin-top:12px;font-size:16px;color:var(--muted)}
+@media (max-width:600px){.terms-card{padding:26px 20px}.terms-body{font-size:17px}.confirm-card{padding:24px 18px}.confirm-check{font-size:18px}}

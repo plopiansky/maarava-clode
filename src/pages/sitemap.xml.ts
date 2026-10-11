@@ -8,6 +8,7 @@ const PAGES = [
 	{ path: "/staff", priority: "0.7" },
 	{ path: "/graduates", priority: "0.7" },
 	{ path: "/gallery", priority: "0.6" },
+	{ path: "/registration", priority: "0.9" },
 	{ path: "/contact", priority: "0.8" },
 	{ path: "/accessibility", priority: "0.3" },
 	{ path: "/privacy", priority: "0.3" },
