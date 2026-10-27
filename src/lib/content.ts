@@ -43,12 +43,17 @@ export function paragraphs(text: string | null | undefined): string[] {
 
 async function all(collection: string): Promise<any[]> {
 	const out: any[] = [];
-	let cursor: string | undefined;
-	for (let page = 0; page < 20; page++) {
-		const r: any = await getEmDashCollection(collection, { limit: 100, cursor } as any);
-		out.push(...r.entries.map((e: any) => ({ ...e.data, _slug: e.id })));
-		cursor = r.nextCursor;
-		if (!cursor) break;
+	try {
+		let cursor: string | undefined;
+		for (let page = 0; page < 20; page++) {
+			const r: any = await getEmDashCollection(collection, { limit: 100, cursor } as any);
+			out.push(...r.entries.map((e: any) => ({ ...e.data, _slug: e.id })));
+			cursor = r.nextCursor;
+			if (!cursor) break;
+		}
+	} catch {
+		// Collection not created yet in this database: callers fall back to the built-in defaults.
+		return [];
 	}
 	return out.sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
 }

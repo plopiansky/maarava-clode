@@ -242,6 +242,7 @@ export interface RegistrationSection {
   title?: string;
   subtitle?: string;
   body?: string;
+  file?: { id: string; url?: string; src?: string; filename?: string; mimeType?: string; size?: number; provider?: string; meta?: Record<string, unknown> };
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;

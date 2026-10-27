@@ -1,13 +1,14 @@
 ---
 import Base from "../layouts/Base.astro";
-import { loadSite, richBlocks } from "../lib/content";
+import { loadSite, richBlocks, imgOf } from "../lib/content";
 
 const { sec, site } = await loadSite();
 const hero = sec["registration-hero"] ?? {};
 const terms = sec["registration-terms"] ?? {};
 const confirm = sec["registration-confirm"] ?? {};
+const pdf = imgOf(terms.file);
 ---
-<Base active="registration" title="הרשמה לישיבה | ישיבת מערבא" description="הרשמה לישיבת מערבא מכון רובין: תקנון ותהליך הרישום – מפגש היכרות, בחינה פסיכוטכנית, בחינות מערבא וראיון אישי. לאחר קריאת התקנון ממשיכים לטופס הרישום.">
+<Base active="registration" title="הרשמה לישיבה | ישיבת מערבא" description="הרשמה לישיבת מערבא מכון רובין: תקנון ותהליך הרישום – בחינה פסיכוטכנית, בחינות מערבא וראיון אישי. לאחר קריאת התקנון ממשיכים לטופס הרישום.">
 <main>
 	<section class="page-hero">
 		<div class="container">
@@ -24,7 +25,7 @@ const confirm = sec["registration-confirm"] ?? {};
 				<div class="terms-body" tabindex="0" aria-label={terms.title}>
 					{richBlocks(terms.body).map((p) => <p set:html={p} />)}
 				</div>
-				<p class="terms-dl"><a href="/registration-terms.pdf" target="_blank" rel="noopener" download>הורדת המסמך (PDF)</a></p>
+				{pdf && <p class="terms-dl"><a href={pdf.src} target="_blank" rel="noopener">הורדת המסמך (PDF)</a></p>}
 			</article>
 
 			<div class="confirm-card reveal">
